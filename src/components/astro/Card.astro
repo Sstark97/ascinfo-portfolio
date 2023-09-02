@@ -8,17 +8,9 @@ interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<div class="link-card">
+	<a class="text-white" href={href}>{title}</a>
+</div>
 <style>
 	.link-card {
 		list-style: none;
