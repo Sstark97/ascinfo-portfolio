@@ -35,8 +35,8 @@ const NavList = () => (
             color="blue-gray"
             className="p-1 font-medium"
         >
-            <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-                Blocks
+            <a href="/images/blog" className="flex items-center hover:text-blue-500 transition-colors">
+                Blog
             </a>
         </Typography>
         <Typography
@@ -75,7 +75,7 @@ export const NavBar = () => {
                     variant="h6"
                     className="mr-4 cursor-pointer py-1.5"
                 >
-                    Material Tailwind
+                    Aitor Santana
                 </Typography>
                 <div className="hidden lg:block">
                     <NavList />

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import {getCollection, getEntry} from 'astro:content';
+import {Image} from "astro:assets";
 
 export async function getStaticPaths() {
   const allBlogPosts = await getCollection('posts');
@@ -19,5 +20,29 @@ const { Content, headings } = await postData.render();
 ---
 
 <Layout title="Home">
-    <Content />
+    <article>
+        <h1>{postData.data.title}</h1>
+        <Image
+                src={postData.data.image}
+                alt={postData.data.title}
+                width="64"
+                height="64"
+                transition:name={`img-${postData.data.title}`}
+        />
+        <Content />
+    </article>
 </Layout>
+
+<style is:inline>
+    article {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+</style>

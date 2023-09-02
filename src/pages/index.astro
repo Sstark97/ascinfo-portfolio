@@ -1,18 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from "../components/astro/Card.astro";
-import { getCollection } from 'astro:content';
-
-const allBlogPosts = await getCollection('posts');
 ---
 
 <Layout title="ascinfo">
 	<h1 class="text-3xl text-center font-bold" >Aitor Portfolio</h1>
-	{allBlogPosts.map((post) => (
-		<Card
-			title={post.data.title}
-			href={`/blog/${post.slug}`}
-			key={post.slug}
-		/>
-	))}
 </Layout>
