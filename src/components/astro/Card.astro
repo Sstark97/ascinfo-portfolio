@@ -1,27 +1,41 @@
 ---
 import { Image } from 'astro:assets';
+import {
+	Card,
+	CardHeader,
+	CardBody,
+	CardFooter,
+	Typography,
+	Button,
+} from "@material-tailwind/react";
 interface Props {
 	title: string;
+	description: string;
 	image: string;
 	href: string;
 }
 
-const { href, title, image } = Astro.props;
+const { href, title, description, image } = Astro.props;
 ---
-
 <a href={href}>
-	<Image
-		src={image}
-		alt={title}
-		width="64"
-		height="64"
-		transition:name={`img-${title}`}
-	/>
-	<h3 class="text-2xl font-bold">{title}</h3>
+	<Card className="mt-6 w-96">
+		<CardHeader className="relative h-56">
+			<Image
+				src={image}
+				alt={title}
+				width="64"
+				height="64"
+				class="w-full"
+				transition:name={`img-${title}`}
+			/>
+		</CardHeader>
+		<CardBody>
+			<Typography variant="h5" color="blue-gray" className="mb-2">
+				{title}
+			</Typography>
+			<Typography>
+				{description}
+			</Typography>
+		</CardBody>
+	</Card>
 </a>
-
-<style>
-	code {
-		color: #fff;
-	}
-</style>

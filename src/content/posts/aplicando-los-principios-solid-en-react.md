@@ -1,6 +1,8 @@
 ---
-title: "Principios SOLID en React"
+title: "Aplicando los principios SOLID en React"
 image: "/images/blog/solid.webp"
+description: "Los principios SOLID son uno de los fundamentos más importantes en la arquitectura y desarrollo de software. 
+SOLID es un acrónimo acuñado por Michael Feathers..."
 tags:
     - "test"
 ---
