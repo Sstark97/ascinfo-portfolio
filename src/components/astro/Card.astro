@@ -1,41 +1,29 @@
 ---
-import { Image } from 'astro:assets';
-import {
-	Card,
-	CardHeader,
-	CardBody,
-	CardFooter,
-	Typography,
-	Button,
-} from "@material-tailwind/react";
+import {Image} from 'astro:assets';
 interface Props {
-	title: string;
-	description: string;
-	image: string;
-	href: string;
+    title: string;
+    image: string;
+    href: string;
+    tags: string[];
 }
 
-const { href, title, description, image } = Astro.props;
+const {title, image, href, tags} = Astro.props;
 ---
-<a href={href}>
-	<Card className="mt-6 w-96">
-		<CardHeader className="relative h-56">
-			<Image
-				src={image}
-				alt={title}
-				width="64"
-				height="64"
-				class="w-full"
-				transition:name={`img-${title}`}
-			/>
-		</CardHeader>
-		<CardBody>
-			<Typography variant="h5" color="blue-gray" className="mb-2">
-				{title}
-			</Typography>
-			<Typography>
-				{description}
-			</Typography>
-		</CardBody>
-	</Card>
-</a>
+<article class="w-10/12 flex flex-col items-center justify-center mt-4 p-4 space-y-4 bg-white rounded-lg shadow-lg">
+    <a href={href}>
+        <Image
+			src={image}
+			alt={title}
+			width={64}
+			height={64}
+			className="w-full h-auto"
+        />
+        <h3 class="text-xl font-bold">{title}</h3>
+        <p class="text-gray-500 my-1">23 Junio</p>
+        <div class="flex flex-wrap">
+            {tags.map((tag) => (
+                    <span class="text-xs inline-flex items-center font-bold leading-sm uppercase mx-0.5 mt-0.5 px-3 py-1 rounded-full bg-white text-gray-700 border">{tag}</span>
+            ))}
+        </div>
+    </a>
+</article>

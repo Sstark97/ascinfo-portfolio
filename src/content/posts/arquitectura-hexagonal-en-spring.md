@@ -1,15 +1,15 @@
 ---
-title: "Arquitecura hexagonal en Spring"
+title: "Arquitectura hexagonal en Spring"
 image: "/images/blog/solid.webp"
 description: "En estas semanas he estado redescubriendo Java, con el objetivo de pulir las bases y practicar muchos de 
-los conceptos comunes del desarrollo. Además también empecé a aprender uno de sus frameworks más conocidos, Spring Boot..."
+los conceptos comunes del desarrollo..."
 canonical_url: "https://www.sstark.dev/blog/arquitectura-hexagonal-en-spring"
 date: "2023-08-17"
 tags:
     - "clean code"
-    - "arquitectura hexagonal"
     - "java"
     - "spring"
+    - "arquitectura hexagonal"
 ---
 En estas semanas he estado redescubriendo Java, con el objetivo de pulir las bases y practicar muchos de los conceptos 
 comunes del desarrollo. Además también empecé a aprender uno de sus frameworks más conocidos, Spring Boot.

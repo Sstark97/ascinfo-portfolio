@@ -6,15 +6,16 @@ import {getCollection} from 'astro:content';
 const allBlogPosts = await getCollection('posts');
 ---
 
-<Layout title="ascinfo">
-    <h1 class="text-3xl text-center font-bold">Aitor Portfolio</h1>
-    {allBlogPosts.map((post) => (
-            <Card
-                    title={post.data.title}
-                    description={post.data.description}
-                    image={post.data.image}
-                    href={`/blog/${post.slug}`}
-                    key={post.slug}
-            />
-    ))}
+<Layout title="ascinfo | blog">
+    <section class="mx-auto max-w-screen-xl px-6 py-3 flex flex-wrap justify-center">
+        {allBlogPosts.map((post) => (
+                <Card
+                        title={post.data.title}
+                        image={post.data.image}
+                        href={`/blog/${post.slug}`}
+                        tags={post.data.tags}
+                        key={post.slug}
+                />
+        ))}
+    </section>
 </Layout>
