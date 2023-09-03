@@ -15,18 +15,8 @@ const NavList = () => (
             color="blue-gray"
             className="p-1 font-medium"
         >
-            <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-                Pages
-            </a>
-        </Typography>
-        <Typography
-            as="li"
-            variant="small"
-            color="blue-gray"
-            className="p-1 font-medium"
-        >
-            <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-                Account
+            <a href="/" className="flex items-center hover:text-blue-500 transition-colors">
+                Home
             </a>
         </Typography>
         <Typography
@@ -45,8 +35,18 @@ const NavList = () => (
             color="blue-gray"
             className="p-1 font-medium"
         >
-            <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-                Docs
+            <a href="/proyectos" className="flex items-center hover:text-blue-500 transition-colors">
+                Proyectos
+            </a>
+        </Typography>
+        <Typography
+            as="li"
+            variant="small"
+            color="blue-gray"
+            className="p-1 font-medium"
+        >
+            <a href="/contacto" className="flex items-center hover:text-blue-500 transition-colors">
+                Contacto
             </a>
         </Typography>
     </ul>
