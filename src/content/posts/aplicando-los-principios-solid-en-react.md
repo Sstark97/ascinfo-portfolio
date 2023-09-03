@@ -3,8 +3,11 @@ title: "Aplicando los principios SOLID en React"
 image: "/images/blog/solid.webp"
 description: "Los principios SOLID son uno de los fundamentos más importantes en la arquitectura y desarrollo de software. 
 SOLID es un acrónimo acuñado por Michael Feathers..."
+date: "2023-04-11"
 tags:
-    - "test"
+    - "clean code"
+    - "solid"
+    - "react"
 ---
 Los principios SOLID son uno de los fundamentos más importantes en la arquitectura y desarrollo de software.
 SOLID es un acrónimo acuñado por Michael Feathers, basado en los principios de la POO (programación orientada a objetos) 

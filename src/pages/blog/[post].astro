@@ -19,7 +19,7 @@ const postData = await getEntry('posts', post);
 const { Content, headings } = await postData.render();
 ---
 
-<Layout title="Home">
+<Layout title="Home" canonical={postData.data.canonical_url}>
     <article>
         <h1>{postData.data.title}</h1>
         <Image
