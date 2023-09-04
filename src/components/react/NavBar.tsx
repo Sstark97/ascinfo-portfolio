@@ -20,7 +20,7 @@ const NavList: React.FC<Props> = ({ path }) => (
             className="p-1 font-medium"
         >
             <a href="/" className={`flex items-center hover:text-blue-500 transition-colors ${path === "/" ? "text-primary" : ""}`}>
-                Home
+                Sobre mí
             </a>
         </Typography>
         <Typography
