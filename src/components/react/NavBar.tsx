@@ -76,8 +76,8 @@ export const NavBar: React.FC<Props> = ({ path }) => {
                 <Typography
                     as="a"
                     href="#"
-                    variant="h6"
-                    className="text-primary mr-4 cursor-pointer py-1.5 lg:text-3xl"
+                    variant="h5"
+                    className="text-primary mr-4 cursor-pointer py-1.5"
                 >
                     Aitor Santana
                 </Typography>
