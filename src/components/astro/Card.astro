@@ -9,7 +9,7 @@ interface Props {
 
 const {title, image, href, tags} = Astro.props;
 ---
-<article class="w-10/12 md:w-[45%] flex flex-col items-center justify-center mt-4 p-4 space-y-4 bg-white rounded-lg shadow-lg">
+<article class="w-10/12 md:w-[45%] lg:w-[30%] lg:mb-4 flex flex-col items-center justify-center mt-4 p-4 space-y-4 bg-white rounded-lg shadow-lg">
     <a href={href}>
         <Image
 			src={image}
