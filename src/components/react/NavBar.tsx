@@ -15,7 +15,7 @@ const NavList: React.FC<Props> = ({ path }) => (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
         <Typography
             as="li"
-            variant="small"
+            variant="paragraph"
             color="white"
             className="p-1 font-medium"
         >
@@ -25,7 +25,7 @@ const NavList: React.FC<Props> = ({ path }) => (
         </Typography>
         <Typography
             as="li"
-            variant="small"
+            variant="paragraph"
             color="white"
             className="p-1 font-medium"
         >
@@ -35,7 +35,7 @@ const NavList: React.FC<Props> = ({ path }) => (
         </Typography>
         <Typography
             as="li"
-            variant="small"
+            variant="paragraph"
             color="white"
             className="p-1 font-medium"
         >
@@ -45,7 +45,7 @@ const NavList: React.FC<Props> = ({ path }) => (
         </Typography>
         <Typography
             as="li"
-            variant="small"
+            variant="paragraph"
             color="white"
             className="p-1 font-medium"
         >
@@ -77,7 +77,7 @@ export const NavBar: React.FC<Props> = ({ path }) => {
                     as="a"
                     href="#"
                     variant="h6"
-                    className="text-primary mr-4 cursor-pointer py-1.5"
+                    className="text-primary mr-4 cursor-pointer py-1.5 lg:text-3xl"
                 >
                     Aitor Santana
                 </Typography>
