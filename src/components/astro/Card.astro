@@ -9,7 +9,7 @@ interface Props {
 
 const {title, image, href, tags} = Astro.props;
 ---
-<article class="w-10/12 flex flex-col items-center justify-center mt-4 p-4 space-y-4 bg-white rounded-lg shadow-lg">
+<article class="w-10/12 md:w-[45%] flex flex-col items-center justify-center mt-4 p-4 space-y-4 bg-white rounded-lg shadow-lg">
     <a href={href}>
         <Image
 			src={image}
@@ -18,7 +18,7 @@ const {title, image, href, tags} = Astro.props;
 			height={64}
 			className="w-full h-auto"
         />
-        <h3 class="text-xl font-bold">{title}</h3>
+        <h3 class="text-black text-xl font-bold">{title}</h3>
         <p class="text-gray-500 my-1">23 Junio</p>
         <div class="flex flex-wrap">
             {tags.map((tag) => (
