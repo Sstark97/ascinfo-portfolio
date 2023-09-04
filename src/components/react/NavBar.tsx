@@ -5,7 +5,7 @@ import {
     Typography,
     IconButton,
 } from "@material-tailwind/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, RocketLaunchIcon } from "@heroicons/react/24/outline";
 
 interface Props {
     path: string;
@@ -71,15 +71,16 @@ export const NavBar: React.FC<Props> = ({ path }) => {
     }, []);
 
     return (
-        <Navbar className="border-t-transparent border-x-transparent border-b-[0.75px] border-b-primary rounded-b-none bg-black mx-auto max-w-screen-xl px-6 py-3">
+        <Navbar className="border-t-transparent border-x-transparent border-b-[0.75px] border-b-primary rounded-b-none bg-black mx-auto max-w-screen-xl px-6 py-3 fixed z-10">
             <div className="flex items-center justify-between text-white">
                 <Typography
                     as="a"
                     href="#"
                     variant="h5"
-                    className="text-primary mr-4 cursor-pointer py-1.5"
+                    className="flex text-primary mr-4 cursor-pointer py-1.5"
                 >
                     Aitor Santana
+                    <RocketLaunchIcon className="h-6 w-6 ml-4" strokeWidth={2} />
                 </Typography>
                 <div className="hidden lg:block">
                     <NavList path={path} />
