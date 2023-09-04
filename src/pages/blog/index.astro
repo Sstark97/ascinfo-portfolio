@@ -7,7 +7,7 @@ const allBlogPosts = await getCollection('posts');
 ---
 
 <Layout title="ascinfo | blog">
-    <section class="mx-auto max-w-screen-xl px-6 py-3 flex flex-wrap justify-center md:justify-evenly lg:justify-around">
+    <section class="mx-auto max-w-screen-xl px-6 py-3 flex flex-wrap justify-center md:justify-evenly lg:justify-start lg:grid-cols-3 lg:gap-6">
         {allBlogPosts.map((post) => (
                 <Card
                     title={post.data.title}

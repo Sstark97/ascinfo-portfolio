@@ -71,13 +71,13 @@ export const NavBar: React.FC<Props> = ({ path }) => {
     }, []);
 
     return (
-        <Navbar className="border-t-transparent border-x-transparent border-b-white rounded-b-none bg-background mx-auto max-w-screen-xl px-6 py-3">
+        <Navbar className="border-t-transparent border-x-transparent border-b-[0.75px] border-b-primary rounded-b-none bg-black mx-auto max-w-screen-xl px-6 py-3">
             <div className="flex items-center justify-between text-white">
                 <Typography
                     as="a"
                     href="#"
                     variant="h6"
-                    className="mr-4 cursor-pointer py-1.5"
+                    className="text-primary mr-4 cursor-pointer py-1.5"
                 >
                     Aitor Santana
                 </Typography>
