@@ -7,7 +7,6 @@ module.exports = withMT({
 		extend: {
 			colors: {
 				background: "#1d1d1d",
-				color: "#fff",
 				primary: "#00DFFC",
 				hover_btn: "#00dffcbf",
 				secondary: "#909096",

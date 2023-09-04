@@ -7,52 +7,56 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const NavList = () => (
+interface Props {
+    path: string;
+}
+
+const NavList: React.FC<Props> = ({ path }) => (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
         <Typography
             as="li"
             variant="small"
-            color="blue-gray"
+            color="white"
             className="p-1 font-medium"
         >
-            <a href="/" className="flex items-center hover:text-blue-500 transition-colors">
+            <a href="/" className={`flex items-center hover:text-blue-500 transition-colors ${path === "/" ? "text-primary" : ""}`}>
                 Home
             </a>
         </Typography>
         <Typography
             as="li"
             variant="small"
-            color="blue-gray"
+            color="white"
             className="p-1 font-medium"
         >
-            <a href="/blog" className="flex items-center hover:text-blue-500 transition-colors">
+            <a href="/blog" className={`flex items-center hover:text-blue-500 transition-colors ${path === "/blog" ? "text-primary" : ""}`}>
                 Blog
             </a>
         </Typography>
         <Typography
             as="li"
             variant="small"
-            color="blue-gray"
+            color="white"
             className="p-1 font-medium"
         >
-            <a href="/proyectos" className="flex items-center hover:text-blue-500 transition-colors">
+            <a href="/proyectos" className={`flex items-center hover:text-blue-500 transition-colors ${path === "/proyectos" ? "text-primary" : ""}`}>
                 Proyectos
             </a>
         </Typography>
         <Typography
             as="li"
             variant="small"
-            color="blue-gray"
+            color="white"
             className="p-1 font-medium"
         >
-            <a href="/contacto" className="flex items-center hover:text-blue-500 transition-colors">
+            <a href="/contacto" className={`flex items-center hover:text-blue-500 transition-colors ${path === "/contacto" ? "text-primary" : ""}`}>
                 Contacto
             </a>
         </Typography>
     </ul>
 );
 
-export const NavBar = () => {
+export const NavBar: React.FC<Props> = ({ path }) => {
     const [openNav, setOpenNav] = React.useState(false);
 
     const handleWindowResize = () =>
@@ -67,8 +71,8 @@ export const NavBar = () => {
     }, []);
 
     return (
-        <Navbar className="mx-auto max-w-screen-xl px-6 py-3">
-            <div className="flex items-center justify-between text-blue-gray-900">
+        <Navbar className="border-t-transparent border-x-transparent border-b-white rounded-b-none bg-background mx-auto max-w-screen-xl px-6 py-3">
+            <div className="flex items-center justify-between text-white">
                 <Typography
                     as="a"
                     href="#"
@@ -78,7 +82,7 @@ export const NavBar = () => {
                     Aitor Santana
                 </Typography>
                 <div className="hidden lg:block">
-                    <NavList />
+                    <NavList path={path} />
                 </div>
                 <IconButton
                     variant="text"
@@ -94,7 +98,7 @@ export const NavBar = () => {
                 </IconButton>
             </div>
             <Collapse open={openNav}>
-                <NavList />
+                <NavList path={path} />
             </Collapse>
         </Navbar>
     );
