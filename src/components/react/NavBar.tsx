@@ -12,7 +12,7 @@ interface Props {
 }
 
 const NavList: React.FC<Props> = ({ path }) => (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="my-2 flex flex-col gap-2 lg:w-full lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
         <Typography
             as="li"
             variant="paragraph"
@@ -71,7 +71,7 @@ export const NavBar: React.FC<Props> = ({ path }) => {
     }, []);
 
     return (
-        <Navbar className="border-t-transparent border-x-transparent border-b-[0.75px] border-b-primary rounded-b-none bg-black mx-auto max-w-screen-xl px-6 py-3 fixed z-10">
+        <Navbar className="border-t-transparent border-x-transparent border-b-[0.75px] border-b-primary rounded-b-none bg-black mx-auto px-6 py-3 fixed z-10 lg:max-w-none lg:px-8 lg:py-5">
             <div className="flex items-center justify-between text-white">
                 <Typography
                     as="a"

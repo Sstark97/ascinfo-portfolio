@@ -1,0 +1,10 @@
+---
+interface Props {
+    hideInDesktop?: boolean;
+}
+
+const {hideInDesktop} = Astro.props;
+---
+<section class={`${hideInDesktop ? "flex lg:hidden" : "hidden lg:flex"} justify-center my-6 lg:justify-start lg:px-6 lg:py-2`}>
+    <a href="/contacto" class="px-12 py-4 border border-primary text-primary">Contáctame</a>
+</section>
