@@ -75,7 +75,7 @@ export const NavBar: React.FC<Props> = ({ path }) => {
             <div className="flex items-center justify-between text-white">
                 <Typography
                     as="a"
-                    href="#"
+                    href="/"
                     variant="h5"
                     className="flex text-primary mr-4 cursor-pointer py-1.5"
                 >
