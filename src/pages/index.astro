@@ -1,37 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Profile from '../components/astro/Profile.astro';
 ---
 
 <Layout title="ascinfo">
-	<section class="p-3 pt-16">
-		<p class="text-2xl text-center mt-6 font-bold">Hola, soy Aitor Santana, Desarrollador de Software</p>
-		<p class="text-lg text-center px-6 py-2 opacity-90">
-			Puedo decir que tengo la suerte de trabajar en lo que me apasiona, el desarrollo de software.
-			A lo largo de mi trayectoria profesional he aprendido a desarrollar en diferentes lenguajes de programación y frameworks,
-			como Java, Python, TypeScript, Spring Boot, Flask, Angular, React y Next.js.
-		</p>
-		<p class="text-lg text-center px-6 opacity-90">
-			En los últimos meses me he preocupado por como escribir código de calidad, y como hacer que el código sea más mantenible.
-			Para ello he estado aprendiendo TDD, código sostenible, patrones de diseño, arquitecturas limpias, y muchas otras
-			cosas que me ayuden a desarrollar código para las personas.
-		</p>
-		<p class="text-lg text-center px-6 opacity-90">
-			Estas últimas características puedo aplicarlas y desarrollarlas en Lean Mind, donde trabajo actualmente con un gran
-			equipo de personas que me ayudan a crecer como profesional y como persona, impulsándome y motivándome para dar lo mejor
-			de mí cada día.
-		</p>
-		<p class="text-lg text-center px-6 opacity-90">
-			Parte de mi tiempo libre lo aprovecho para llevar a cabo proyectos personales que me desafían
-			y me permiten explorar nuevas tecnologías. Creo firmemente que el aprendizaje continuo y la creatividad son cruciales
-			en nuestra industria en constante evolución.
-		</p>
-		<p class="text-lg text-center px-6 opacity-90">
-			Si crees que puedo colaborar contigo en algún proyecto, tienes una idea brillante que quieras compartir conmigo,
-			o simplemente deseas entablar una conversación sobre tecnología y desarrollo, no dudes en contactarme. Estoy aquí
-			para escucharte y explorar oportunidades conjuntas.
-		</p>
-	</section>
-	<section class="flex justify-center my-6">
-		<a href="/contacto" class="px-12 py-4 border border-primary text-primary">Contáctame</a>
-	</section>
+    <section class="p-3 pt-20 pb-5">
+        <Profile />
+        <p class="text-2xl text-center mt-6 font-bold">Hola, soy Aitor Santana, Desarrollador de Software</p>
+        <p class="text-lg text-center px-6 py-2 opacity-90">
+            Puedo decir que tengo la suerte de trabajar en lo que me apasiona, el desarrollo de software.
+            A lo largo de mi trayectoria profesional he aprendido a desarrollar en diferentes lenguajes de programación
+            y frameworks,
+            como Java, Python, TypeScript, Spring Boot, Flask, Angular, React y Next.js.
+        </p>
+        <p class="text-lg text-center px-6 opacity-90">
+            En los últimos meses me he preocupado por como escribir código de calidad, y como hacer que el código sea
+            más mantenible.
+            Para ello he estado aprendiendo TDD, código sostenible, patrones de diseño, arquitecturas limpias, y muchas
+            otras
+            cosas que me ayuden a desarrollar código para las personas.
+        </p>
+        <p class="text-lg text-center px-6 opacity-90">
+            Estas últimas características puedo aplicarlas y desarrollarlas en Lean Mind, donde trabajo actualmente con
+            un gran
+            equipo de personas que me ayudan a crecer como profesional y como persona, impulsándome y motivándome para
+            dar lo mejor
+            de mí cada día.
+        </p>
+        <p class="text-lg text-center px-6 opacity-90">
+            Parte de mi tiempo libre lo aprovecho para llevar a cabo proyectos personales que me desafían
+            y me permiten explorar nuevas tecnologías. Creo firmemente que el aprendizaje continuo y la creatividad son
+            cruciales
+            en nuestra industria en constante evolución.
+        </p>
+        <p class="text-lg text-center px-6 opacity-90">
+            Si crees que puedo colaborar contigo en algún proyecto, tienes una idea brillante que quieras compartir
+            conmigo,
+            o simplemente deseas entablar una conversación sobre tecnología y desarrollo, no dudes en contactarme. Estoy
+            aquí
+            para escucharte y explorar oportunidades conjuntas.
+        </p>
+    </section>
+    <section class="flex justify-center my-6">
+        <a href="/contacto" class="px-12 py-4 border border-primary text-primary">Contáctame</a>
+    </section>
 </Layout>
