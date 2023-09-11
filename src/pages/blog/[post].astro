@@ -20,7 +20,7 @@ const { Content, headings } = await postData.render();
 ---
 
 <Layout title="Home" canonical={postData.data.canonical_url}>
-    <article>
+    <article class="pt-20 md:pb-3 lg:pt-28 lg:pb-16">
         <h1>{postData.data.title}</h1>
         <Image
                 src={postData.data.image}
