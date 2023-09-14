@@ -1,13 +1,6 @@
 import type {Post} from "../../../domain/model/Post.ts";
 import type {PostRepository} from "../repository/postRepository";
-
-class GetPost {
-    constructor(private readonly postRepository: PostRepository) {}
-
-    async execute(slug: string) {
-        return await this.postRepository.findPostBySlug(slug);
-    }
-}
+import {GetPost} from "./getPost.action.ts";
 
 describe("getPost should", () => {
     it("return a single post", async () => {
