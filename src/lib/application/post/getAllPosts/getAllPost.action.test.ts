@@ -1,5 +1,17 @@
 import type {Post} from "../../../domain/model/Post.ts";
 
+interface PostRepository {
+    getAllPosts: () => Promise<Post[]>;
+}
+
+class GetAllPost {
+    constructor(private readonly postRepository: PostRepository) {}
+
+    async execute() {
+        return await this.postRepository.getAllPosts();
+    }
+}
+
 describe("getAllPost should", () => {
     it("return all posts", async () => {
         const posts: Post[] = [
