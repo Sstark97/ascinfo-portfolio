@@ -1,5 +1,4 @@
 import type {PostRepository} from "../../application/post/repository/postRepository.ts";
-import type {Post} from "../../domain/model/Post.ts";
 import {getCollection, getEntry} from "astro:content";
 
 export class PostAstroContentAdapter implements PostRepository {
