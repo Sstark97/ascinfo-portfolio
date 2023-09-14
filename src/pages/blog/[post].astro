@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import {getEntry} from 'astro:content';
 import {Image} from "astro:assets";
 import {GetAllPost} from "../../lib/application/post/getAllPosts/getAllPosts.action";
 import {PostAstroContentAdapter} from "../../lib/infrastructure/adapter/PostAstroContentAdapter";
+import {GetPost} from "../../lib/application/post/getPost/getPost.action";
 
 export async function getStaticPaths() {
   const allBlogPosts = await new GetAllPost(new PostAstroContentAdapter()).execute();
@@ -17,20 +17,20 @@ export async function getStaticPaths() {
 }
 
 const {post} = Astro.params;
-const postData = await getEntry('posts', post);
+const postData = await new GetPost(new PostAstroContentAdapter()).execute(post);
 const { Content, headings } = await postData.render();
 ---
 
-<Layout title={postData.slug} canonical={postData.data.canonical_url}>
+<Layout title={postData.slug} canonical={postData.canonical_url}>
     <article class="pt-20 md:pb-3 lg:pt-28 lg:pb-16">
-        <h1>{postData.data.title}</h1>
+        <h1>{postData.title}</h1>
         <Image
-                src={postData.data.image}
-                alt={postData.data.title}
+                src={postData.image}
+                alt={postData.title}
                 width="64"
                 height="64"
                 class="w-full"
-                transition:name={`img-${postData.data.title}`}
+                transition:name={`img-${postData.title}`}
         />
         <Content />
     </article>

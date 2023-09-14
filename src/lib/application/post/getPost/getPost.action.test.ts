@@ -1,15 +1,17 @@
-import type {Post} from "../../../domain/model/Post.ts";
 import type {PostRepository} from "../repository/postRepository";
 import {GetPost} from "./getPost.action.ts";
+import type {PostToRenderDto} from "../dto";
+import {Render} from "astro:content";
 
 describe("getPost should", () => {
     it("return a single post", async () => {
-        const post: Post = {
+        const post: PostToRenderDto = {
             slug: "slug",
             title: "title",
             description: "description",
             date: "2021-01-01",
-            tags: ["tag1", "tag2"]
+            tags: ["tag1", "tag2"],
+            render: () => {}
         };
 
         const PostRepository: PostRepository = {
