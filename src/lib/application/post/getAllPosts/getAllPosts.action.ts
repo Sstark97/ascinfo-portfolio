@@ -5,6 +5,6 @@ export class GetAllPost {
     }
 
     async execute() {
-        return await this.postRepository.getAllPosts();
+        return await this.postRepository.findAllPosts();
     }
 }

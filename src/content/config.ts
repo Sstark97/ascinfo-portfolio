@@ -3,6 +3,7 @@ import {z, ZodSchema} from "astro/zod";
 import type {Post} from "../lib/domain/model/Post";
 
 const postSchema: ZodSchema<Post> = z.object({
+    slug: z.string(),
     title: z.string(),
     description: z.string(),
     image: z.string().optional(),
