@@ -21,7 +21,8 @@ describe("getAllPost should", () => {
             }
         ];
         const PostRepository: PostRepository = {
-            findAllPosts: vi.fn().mockResolvedValue(posts)
+            findAllPosts: vi.fn().mockResolvedValue(posts),
+            findPostBySlug: vi.fn()
         }
         const getAllPost = new GetAllPost(PostRepository);
 
