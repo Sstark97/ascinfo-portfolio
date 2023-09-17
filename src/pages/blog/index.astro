@@ -13,6 +13,7 @@ const allBlogPosts = await getCollection('posts');
                     title={post.data.title}
                     image={post.data.image}
                     href={`/blog/${post.slug}`}
+                    date={post.data.date}
                     tags={post.data.tags}
                     key={post.slug}
                 />

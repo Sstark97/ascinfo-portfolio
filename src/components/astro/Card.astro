@@ -4,10 +4,18 @@ interface Props {
     title: string;
     image: string;
     href: string;
+    date: Date;
     tags: string[];
 }
 
-const {title, image, href, tags} = Astro.props;
+function formatDate(date: Date) {
+    const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+    const month = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
+    const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+    return `${day}/${month}/${year}`;
+}
+
+const {title, image, href, date, tags} = Astro.props;
 ---
 <article class="w-10/12 md:w-[45%] lg:w-[30%] lg:hover:scale-105 lg:ease-in-out lg:duration-300 flex flex-col items-center justify-center mt-4 p-4 space-y-4 bg-fourth rounded-lg shadow-2xl">
     <a href={href}>
@@ -19,7 +27,7 @@ const {title, image, href, tags} = Astro.props;
 			className="w-full h-auto"
         />
         <h3 class= "text-xl font-bold">{title}</h3>
-        <p class="text-gray-500 my-1">23 Junio</p>
+        <p class="text-gray-500 my-1">{formatDate(date)}</p>
         <div class="flex flex-wrap">
             {tags.map((tag) => (
                     <span class="text-xs inline-flex items-center font-bold leading-sm uppercase mx-0.5 mt-0.5 px-3 py-1 rounded-full bg-white text-gray-800 border">{tag}</span>
