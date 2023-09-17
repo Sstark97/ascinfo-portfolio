@@ -30,7 +30,7 @@ const {title, image, href, date, tags} = Astro.props;
         <p class="text-gray-500 my-1">{formatDate(date)}</p>
         <div class="flex flex-wrap">
             {tags.map((tag) => (
-                    <span class="text-xs inline-flex items-center font-bold leading-sm uppercase mx-0.5 mt-0.5 px-3 py-1 rounded-full bg-white text-gray-800 border">{tag}</span>
+                    <span class="text-xs inline-flex items-center font-bold leading-sm uppercase mx-0.5 my-1 px-3 py-1 rounded-full bg-white text-gray-800 border">{tag}</span>
             ))}
         </div>
     </a>
