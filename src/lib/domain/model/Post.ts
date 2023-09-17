@@ -4,6 +4,6 @@ export interface Post {
     description: string;
     image?: string;
     canonical_url?: string;
-    date: string;
+    date: Date;
     tags: string[];
 }
