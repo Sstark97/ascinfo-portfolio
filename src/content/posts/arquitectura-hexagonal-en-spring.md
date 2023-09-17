@@ -42,4 +42,4 @@ src/main/java/com/sstark/generalmarket/
 De está estructura lo más importante en la carpeta de configuración y los diferentes adaptadores, que serán los repositorios que inyecte Spring en los servicios.
 Veamos paso a paso el proceso para que funcione todo correctamente.
 
-[Leer más...](https://www.sstark.dev/blog/arquitectura-hexagonal-en-spring)
+<span class="read-more">[Leer más...](https://www.sstark.dev/blog/arquitectura-hexagonal-en-spring)</span>
