@@ -1,6 +1,6 @@
 ---
 title: "Arquitectura hexagonal en Spring"
-image: "/images/blog/solid.webp"
+image: "/images/blog/spring.webp"
 description: "En estas semanas he estado redescubriendo Java, con el objetivo de pulir las bases y practicar muchos de 
 los conceptos comunes del desarrollo..."
 canonical_url: "https://www.sstark.dev/blog/arquitectura-hexagonal-en-spring"
