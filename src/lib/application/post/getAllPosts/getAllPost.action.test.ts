@@ -9,14 +9,14 @@ describe("getAllPost should", () => {
                 slug: "slug",
                 title: "title",
                 description: "description",
-                date: "2021-01-01",
+                date: new Date("2021-01-01"),
                 tags: ["tag1", "tag2"]
             },
             {
                 slug: "slug2",
                 title: "title2",
                 description: "description2",
-                date: "2021-01-02",
+                date: new Date("2021-01-02"),
                 tags: ["tag1", "tag2"]
             }
         ];
