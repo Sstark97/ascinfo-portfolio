@@ -6,7 +6,6 @@ demo: "https://movie-in.netlify.app/"
 date: 2023-01-02
 ---
 
-# The Movie
 Aplicación web para buscar películas consumiendo la API de [The Movie Database](https://www.themoviedb.org/), para una
 entrevista técnica de React.
 

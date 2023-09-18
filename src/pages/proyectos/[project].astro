@@ -1,3 +1,84 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+import {Image} from "astro:assets";
+import {GetAllProjects} from "../../lib/application/project/getAllProjects";
+import {ProjectAstroContentAdapter} from "../../lib/infrastructure/adapter/ProjectAstroContentAdapter";
+import {GetProject} from "../../lib/application/project/getProject";
 
+export async function getStaticPaths() {
+    const allProjects = await new GetAllProjects(new ProjectAstroContentAdapter()).execute();
+    return allProjects.map((project) => {
+    return {
+        params: {
+                project: project.slug,
+            }
+        }
+    });
+    }
+
+const {project} = Astro.params;
+const projectData = await new GetProject(new ProjectAstroContentAdapter()).execute(project);
+const { Content, headings } = await projectData.render();
 ---
+
+<Layout title={projectData.slug}>
+    <article class="pt-20 md:pb-3 lg:pt-28 lg:pb-16">
+        <div class="flex items-center justify-center">
+            <h1 class="mr-3">{projectData.title}</h1>
+            <Image
+                    src={projectData.image}
+                    alt={projectData.title}
+                    width="64"
+                    height="64"
+                    class="w-16 h-16 max-w-16"
+                    transition:name={`img-${projectData.title}`}
+            />
+        </div>
+        <Content />
+    </article>
+</Layout>
+
+<style is:inline>
+    article {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    ul:not(.common-list) {
+        display: flex;
+        margin-top: .5rem;
+    }
+
+    li {
+        margin-right: 1rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        margin: 1rem 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+
+    .common-list {
+        list-style: outside;
+        margin-left: 2rem;
+    }
+</style>

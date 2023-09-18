@@ -6,11 +6,12 @@ demo: "https://minesweeper-dew.netlify.app/"
 date: 2022-11-13
 ---
 
-# MinesWeeper
 Adaptación del famoso juego busca minas, con 3 niveles de dificultad en el que habrán las siguientes minas a evitar:
-- Principiante: 10 minas
-- Intermedio: 22 minas
-- Avanzado: 40 minas
+<ul class="common-list">
+<li>Principiante: 10 minas</li>
+<li>Intermedio: 22 minas</li>
+<li>Avanzado: 40 minas</li>
+</ul>
 Está desarrollado como una aplicación web progresiva, por lo que puede instalarse en el dispositivo y jugarse sin conexión 
 a internet.
 

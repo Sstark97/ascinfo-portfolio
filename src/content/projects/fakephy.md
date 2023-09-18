@@ -6,7 +6,6 @@ demo: "https://fakephy.netlify.app/"
 date: 2022-09-14
 ---
 
-# Fakephy
 Aplicación sencilla para buscar gifs consumiendo la API de [Giphy](https://giphy.com/).
 
 ## Tecnologías
