@@ -4,4 +4,5 @@ export interface Project {
     image?: string;
     repository: string;
     demo?: string;
+    date: Date;
 }

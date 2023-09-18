@@ -18,6 +18,7 @@ const projectSchema: ZodSchema<Project> = z.object({
     image: z.string().optional(),
     repository: z.string(),
     demo: z.string().optional(),
+    date: z.date(),
 });
 
 // create zod collection with Post interface
