@@ -1,0 +1,1 @@
+export {GetProject} from "./getProject.action";

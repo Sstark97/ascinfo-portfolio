@@ -18,10 +18,11 @@ describe("GetAllProjects should", () => {
                 date: new Date("2021-01-02")
             }
         ];
-        const PostRepository: ProjectRepository = {
+        const ProjectRepository: ProjectRepository = {
             findAllProjects: vi.fn().mockResolvedValue(projects),
+            findProjectBySlug: vi.fn()
         }
-        const getAllProjects = new GetAllProjects(PostRepository);
+        const getAllProjects = new GetAllProjects(ProjectRepository);
 
         const allProjects = await getAllProjects.execute();
 
