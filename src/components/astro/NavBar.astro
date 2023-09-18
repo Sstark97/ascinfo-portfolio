@@ -1,0 +1,40 @@
+---
+import {
+    Astronav,
+    MenuItems,
+    MenuIcon,
+} from "astro-navbar";
+import {RocketLaunchIcon} from "@heroicons/react/24/outline";
+const path = Astro.url.pathname;
+---
+<header class="w-full bg-black lg:flex justify-between px-6 py-3 lg:max-w-none lg:px-8 lg:py-5 mx-auto border-t-transparent border-x-transparent border-b-[0.75px] border-b-primary rounded-b-none fixed z-10">
+    <Astronav closeOnClick>
+        <div class="flex w-full lg:w-auto justify-between items-center">
+            <a href="/" class="flex items-center text-2xl text-primary mr-4 cursor-pointer py-1.5">
+                Aitor Santana
+                <RocketLaunchIcon className="h-6 w-6 ml-4" strokeWidth={2}/>
+            </a>
+            <div class="block lg:hidden">
+                <MenuIcon class="w-4 h-4 text-white"/>
+            </div>
+        </div>
+        <MenuItems class="hidden lg:flex lg:w-72 items-center justify-between text-white">
+            <a href="/"
+               class={`flex items-center hover:text-blue-500 transition-colors p-1 ${path === "/" ? "text-primary" : ""}`}>
+                Sobre mí
+            </a>
+            <a href="/blog"
+               class={`flex items-center hover:text-blue-500 transition-colors p-1 ${path === "/blog" ? "text-primary" : ""}`}>
+                Blog
+            </a>
+            <a href="/proyectos"
+               class={`flex items-center hover:text-blue-500 transition-colors p-1 ${path === "/proyectos" ? "text-primary" : ""}`}>
+                Proyectos
+            </a>
+            <a href="/contacto"
+               class={`flex items-center hover:text-blue-500 transition-colors p-1 ${path === "/contacto" ? "text-primary" : ""}`}>
+                Contacto
+            </a>
+        </MenuItems>
+    </Astronav>
+</header>

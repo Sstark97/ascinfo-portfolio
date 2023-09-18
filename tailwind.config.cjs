@@ -1,12 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
 
-module.exports = withMT({
-	content: [
-		"./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
-		"./node_modules/@material-tailwind/react/components/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
-		"./node_modules/@material-tailwind/react/theme/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
-	],
+module.exports = {
+	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		extend: {
 			colors: {
@@ -25,4 +20,4 @@ module.exports = withMT({
 		},
 	},
 	plugins: [require('tailwind-scrollbar')({ nocompatible: true }),],
-});
+};

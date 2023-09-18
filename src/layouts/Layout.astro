@@ -1,5 +1,5 @@
 ---
-import { NavBar } from '../components/react/NavBar'
+import NavBar from "../components/astro/NavBar.astro";
 import { ViewTransitions } from 'astro:transitions';
 interface Props {
 	title: string;
@@ -7,7 +7,6 @@ interface Props {
 }
 
 const { title, canonical } = Astro.props;
-const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -26,7 +25,7 @@ const currentPath = Astro.url.pathname;
 		<ViewTransitions />
 	</head>
 	<body class="bg-black text-white scrollbar scrollbar-thumb-primary scrollbar-w-2 scrollbar-corner-rounded-xl">
-		<NavBar path={currentPath} client:load/>
+		<NavBar />
 		<slot />
 	</body>
 </html>
