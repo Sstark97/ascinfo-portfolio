@@ -1,6 +1,6 @@
 ---
 title: "MinesWeeper"
-image: "../../images/projects/minesweeper.webp"
+image: "/images/projects/minesweeper.webp"
 repository: "https://github.com/Sstark97/DEW/tree/main/minesweeper"
 demo: "https://minesweeper-dew.netlify.app/"
 date: 2022-11-13

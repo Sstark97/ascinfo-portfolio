@@ -1,6 +1,6 @@
 ---
 title: "Chat Now"
-image: "../../images/projects/chat-now.webp"
+image: "/images/projects/chat-now.webp"
 repository: "https://github.com/Sstark97/chat-now"
 demo: "https://chat-now-psi.vercel.app/"
 date: 2023-05-11

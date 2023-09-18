@@ -1,6 +1,6 @@
 ---
 title: "The Movie"
-image: "../../images/projects/the-movie.webp"
+image: "/images/projects/the-movie.webp"
 repository: "https://github.com/Sstark97/the_movie"
 demo: "https://movie-in.netlify.app/"
 date: 2023-01-02

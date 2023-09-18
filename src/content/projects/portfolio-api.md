@@ -1,6 +1,6 @@
 ---
 title: "Portfolio API"
-image: "../../images/projects/portfolio-api.webp"
+image: "/images/projects/portfolio-api.webp"
 repository: "https://github.com/Sstark97/portfolio-api"
 demo: "https://portfolioapi.onrender.com/"
 date: 2022-08-26

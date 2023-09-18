@@ -1,6 +1,6 @@
 ---
 title: "Cyborg"
-image: "../../images/projects/cyborg.webp"
+image: "/images/projects/cyborg.webp"
 repository: "https://github.com/Sstark97/Cyborg"
 date: 2023-02-01
 ---

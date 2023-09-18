@@ -1,6 +1,6 @@
 ---
 title: "Let's Play Football"
-image: "../../images/projects/lets-play-football.webp"
+image: "/images/projects/lets-play-football.webp"
 repository: "https://github.com/Sstark97/lets_play_football"
 demo: "https://lets-play-football.netlify.app/"
 date: 2023-02-11
