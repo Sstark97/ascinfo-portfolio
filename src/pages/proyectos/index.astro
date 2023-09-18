@@ -1,7 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import {GetAllProjects} from "../../lib/application/project/getAllProjects";
+import {ProjectAstroContentAdapter} from "../../lib/infrastructure/adapter/ProjectAstroContentAdapter";
+
+const allProjects = await new GetAllProjects(new ProjectAstroContentAdapter()).execute()
 ---
 
 <Layout title="ascinfo | proyectos">
-    <h1 class="text-3xl text-center font-bold" >Proyectos</h1>
+    <section class="mx-auto max-w-screen-xl flex flex-wrap justify-center pt-20 px-6 py-3 md:p-20 md:pb-3 lg:pt-28 lg:pb-16 md:justify-evenly lg:justify-start lg:grid-cols-3 lg:gap-6">
+    {
+        allProjects.map(project => (
+            <p>{project.title}</p>
+        ))
+    }
+    </section>
 </Layout>
