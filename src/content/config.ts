@@ -14,7 +14,6 @@ const postSchema: ZodSchema<Post> = z.object({
 
 const projectSchema: ZodSchema<Project> = z.object({
     title: z.string(),
-    description: z.string(),
     image: z.string().optional(),
     repository: z.string(),
     demo: z.string().optional(),
