@@ -25,7 +25,7 @@ const currentPath = Astro.url.pathname;
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
-	<body class="bg-black text-white">
+	<body class="bg-black text-white scrollbar scrollbar-thumb-primary scrollbar-w-2 scrollbar-corner-rounded-xl">
 		<NavBar path={currentPath} client:load/>
 		<slot />
 	</body>
