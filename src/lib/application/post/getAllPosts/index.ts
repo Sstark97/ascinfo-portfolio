@@ -1,0 +1,1 @@
+export {GetAllPosts} from "./getAllPosts.action.ts";

@@ -1,4 +1,4 @@
-import {GetAllProjects} from "./getAllProjects.action.ts";
+import {GetAllProjects} from "./getAllProjects.action";
 import type {Project} from "../../../domain/model/Project.ts";
 import type {ProjectRepository} from "../repository/ProjectRepository.ts";
 

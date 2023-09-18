@@ -1,7 +1,6 @@
-import type {PostRepository} from "../repository/postRepository";
 import {GetPost} from "./getPost.action.ts";
 import type {PostToRenderDto} from "../dto";
-import {Render} from "astro:content";
+import type {PostRepository} from "../repository/postRepository";
 
 describe("getPost should", () => {
     it("return a single post", async () => {
@@ -9,7 +8,7 @@ describe("getPost should", () => {
             slug: "slug",
             title: "title",
             description: "description",
-            date: "2021-01-01",
+            date: new Date("2021-01-01"),
             tags: ["tag1", "tag2"],
             render: () => {}
         };

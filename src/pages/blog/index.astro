@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Card from "../../components/astro/Card.astro";
-import {GetAllPost} from "../../lib/application/post/getAllPosts/getAllPosts.action";
+import {GetAllPosts} from "../../lib/application/post/getAllPosts";
 import {PostAstroContentAdapter} from "../../lib/infrastructure/adapter/PostAstroContentAdapter";
 
-const allBlogPosts = await new GetAllPost(new PostAstroContentAdapter()).execute();
+const allBlogPosts = await new GetAllPosts(new PostAstroContentAdapter()).execute();
 ---
 
 <Layout title="ascinfo | blog">

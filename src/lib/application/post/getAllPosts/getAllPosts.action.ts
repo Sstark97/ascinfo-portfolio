@@ -1,6 +1,6 @@
 import type {PostRepository} from "../repository/postRepository.ts";
 
-export class GetAllPost {
+export class GetAllPosts {
     constructor(private readonly postRepository: PostRepository) {
     }
 

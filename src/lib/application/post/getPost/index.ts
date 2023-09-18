@@ -1,0 +1,1 @@
+export {GetPost} from "./getPost.action.ts";

@@ -1,5 +1,5 @@
+import {GetAllPosts} from "./getAllPosts.action.ts";
 import type {Post} from "../../../domain/model/Post.ts";
-import {GetAllPost} from "./getAllPosts.action.ts";
 import type {PostRepository} from "../repository/postRepository";
 
 describe("getAllPost should", () => {
@@ -24,7 +24,7 @@ describe("getAllPost should", () => {
             findAllPosts: vi.fn().mockResolvedValue(posts),
             findPostBySlug: vi.fn()
         }
-        const getAllPost = new GetAllPost(PostRepository);
+        const getAllPost = new GetAllPosts(PostRepository);
 
         const allPosts = await getAllPost.execute();
 

@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import {Image} from "astro:assets";
-import {GetAllPost} from "../../lib/application/post/getAllPosts/getAllPosts.action";
+import {GetAllPosts} from "../../lib/application/post/getAllPosts";
 import {PostAstroContentAdapter} from "../../lib/infrastructure/adapter/PostAstroContentAdapter";
-import {GetPost} from "../../lib/application/post/getPost/getPost.action";
+import {GetPost} from "../../lib/application/post/getPost";
 
 export async function getStaticPaths() {
-  const allBlogPosts = await new GetAllPost(new PostAstroContentAdapter()).execute();
+  const allBlogPosts = await new GetAllPosts(new PostAstroContentAdapter()).execute();
   return allBlogPosts.map((post) => {
     return {
       params: {
