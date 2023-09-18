@@ -2,7 +2,11 @@
 const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = withMT({
-	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+	content: [
+		"./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+		"./node_modules/@material-tailwind/react/components/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+		"./node_modules/@material-tailwind/react/theme/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+	],
 	theme: {
 		extend: {
 			colors: {

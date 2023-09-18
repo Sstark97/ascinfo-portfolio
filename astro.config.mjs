@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
-
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
+
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,8 +17,10 @@ export default defineConfig({
       // https://github.com/shikijs/shiki/blob/main/docs/languages.md
       langs: ["javascript", "typescript", "jsx", "tsx"],
       // Enable word wrap to prevent horizontal scrolling
-      wrap: true,
-    },
+      wrap: true
+    }
   },
-  integrations: [tailwind(), react(), mdx()]
+  integrations: [tailwind(), react(), mdx()],
+  output: "server",
+  adapter: vercel()
 });
