@@ -1,6 +1,7 @@
 ---
 import NavBar from "../components/astro/NavBar.astro";
 import { ViewTransitions } from 'astro:transitions';
+import Footer from "../components/astro/Footer.astro";
 interface Props {
 	title: string;
 	canonical?: string;
@@ -26,7 +27,8 @@ const { title, canonical } = Astro.props;
 	</head>
 	<body class="bg-black text-white scrollbar scrollbar-thumb-primary scrollbar-w-2 scrollbar-corner-rounded-xl">
 		<NavBar />
-		<slot />
+			<slot />
+	    <Footer />
 	</body>
 </html>
 <style is:global>

@@ -19,7 +19,7 @@ console.log(path);
                 <MenuIcon class="w-4 h-4 text-white"/>
             </div>
         </div>
-        <MenuItems class="hidden lg:flex lg:w-72 items-center justify-between text-white">
+        <MenuItems class="hidden lg:flex lg:w-64 items-center justify-around text-white">
             <a href="/"
                class={`flex items-center hover:opacity-80 transition-colors p-1 ${path === "/" ? "text-primary" : ""}`}>
                 Sobre mí
@@ -31,10 +31,6 @@ console.log(path);
             <a href="/proyectos"
                class={`flex items-center hover:opacity-80 transition-colors p-1 ${path.includes("/proyectos") ? "text-primary" : ""}`}>
                 Proyectos
-            </a>
-            <a href="/contacto"
-               class={`flex items-center hover:opacity-80 transition-colors p-1 ${path.includes("/contacto") ? "text-primary" : ""}`}>
-                Contacto
             </a>
         </MenuItems>
     </Astronav>
