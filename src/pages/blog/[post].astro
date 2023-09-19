@@ -22,7 +22,7 @@ const { Content, headings } = await postData.render();
 ---
 
 <Layout title={postData.slug} canonical={postData.canonical_url}>
-    <article class="pt-20 md:pb-3 lg:pt-28 lg:pb-16">
+    <article class="pt-20 px-8 md:pb-3 lg:pt-28 lg:pb-16 lg:px-0">
         <h1>{postData.title}</h1>
         <Image
                 src={postData.image}
@@ -75,6 +75,7 @@ const { Content, headings } = await postData.render();
         padding: 1rem;
         border-radius: 0.5rem;
         overflow-x: auto;
+        font-size: .9rem;
     }
 
     .read-more {
