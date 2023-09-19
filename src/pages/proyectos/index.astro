@@ -10,7 +10,7 @@ const allProjectsOrderByDateAsc = allProjects.sort((a, b) => new Date(b.date).ge
 ---
 
 <Layout title="ascinfo | proyectos">
-    <section class="mx-auto max-w-screen-xl flex flex-wrap justify-center pt-20 px-6 py-3 md:p-20 md:pb-3 lg:pt-28 lg:pb-16 md:justify-evenly lg:justify-start lg:grid-cols-3 lg:gap-6">
+    <section class="mx-auto max-w-screen-xl flex flex-wrap justify-center pt-20 px-6 py-3 md:p-20 md:pb-3 lg:pt-28 lg:pb-16 md:justify-evenly lg:grid-cols-3 lg:gap-6">
     {
         allProjectsOrderByDateAsc.map(project => (
             <ProjectCard
