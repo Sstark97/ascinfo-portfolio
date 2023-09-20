@@ -9,6 +9,7 @@ describe("getPost should", () => {
             title: "title",
             description: "description",
             date: new Date("2021-01-01"),
+            isPublished: true,
             tags: ["tag1", "tag2"],
             render: () => {}
         };

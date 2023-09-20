@@ -10,6 +10,7 @@ describe("getAllPost should", () => {
                 title: "title",
                 description: "description",
                 date: new Date("2021-01-01"),
+                isPublished: true,
                 tags: ["tag1", "tag2"]
             },
             {
@@ -17,6 +18,7 @@ describe("getAllPost should", () => {
                 title: "title2",
                 description: "description2",
                 date: new Date("2021-01-02"),
+                isPublished: true,
                 tags: ["tag1", "tag2"]
             }
         ];
