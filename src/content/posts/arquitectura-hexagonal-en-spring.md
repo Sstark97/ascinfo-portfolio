@@ -5,6 +5,7 @@ description: "En estas semanas he estado redescubriendo Java, con el objetivo de
 los conceptos comunes del desarrollo..."
 canonical_url: "https://www.sstark.dev/blog/arquitectura-hexagonal-en-spring"
 date: 2023-08-17
+isPublished: false
 tags:
     - "clean code"
     - "java"

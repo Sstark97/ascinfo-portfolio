@@ -9,6 +9,7 @@ const postSchema: ZodSchema<Post> = z.object({
     image: z.string().optional(),
     canonical_url: z.string().optional(),
     date: z.date(),
+    isPublished: z.boolean(),
     tags: z.array(z.string()),
 });
 

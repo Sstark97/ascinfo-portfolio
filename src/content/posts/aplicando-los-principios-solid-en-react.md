@@ -4,6 +4,7 @@ image: "/images/blog/solid.webp"
 description: "Los principios SOLID son uno de los fundamentos más importantes en la arquitectura y desarrollo de software. 
 SOLID es un acrónimo acuñado por Michael Feathers..."
 date: 2023-04-11
+isPublished: true
 tags:
     - "clean code"
     - "solid"

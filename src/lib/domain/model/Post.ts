@@ -5,5 +5,6 @@ export interface Post {
     image?: string;
     canonical_url?: string;
     date: Date;
+    isPublished: boolean;
     tags: string[];
 }
