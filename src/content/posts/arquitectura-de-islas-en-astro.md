@@ -5,7 +5,7 @@ description: "La arquitectura de islas o Astro Islands se refiere a la existenci
 una página HTML predominantemente estática. Pueden coexistir varias islas en una misma página, y esa isla se renderiza 
 de manera aislada...."
 date: 2023-09-20
-isPublished: true
+isPublished: false
 tags:
     - "astro"
     - "web"
