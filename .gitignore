@@ -4,8 +4,11 @@ dist/
 # generated types
 .astro/
 
+
+# local development
 .idea
 .vscode
+.vercel
 
 # dependencies
 node_modules/
