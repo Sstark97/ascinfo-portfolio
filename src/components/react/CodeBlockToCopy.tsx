@@ -1,6 +1,6 @@
 import React from "react";
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import {BsFillClipboardFill, BsFillClipboardCheckFill} from "react-icons/bs";
+import ClipBoard from "./ClipBoard";
+import ClipBoardChecked from "./ClipBoardChecked";
 
 interface Props {
     children: React.ReactElement<HTMLElement>;
@@ -18,6 +18,7 @@ export const CodeBlockToCopy: React.FC<Props> = ({children}) => {
     }, [codeRef])
 
     const handleCopy = () => {
+        navigator.clipboard.writeText(codeText);
         setIsCopied(true);
         setTimeout(() => {
             setIsCopied(false)
@@ -25,13 +26,11 @@ export const CodeBlockToCopy: React.FC<Props> = ({children}) => {
     };
 
     return (
-        <>
-            <CopyToClipboard text={codeText} onCopy={handleCopy}>
-                <button className="text-xl absolute right-2" >{isCopied ? <BsFillClipboardCheckFill className="fill-green-400" /> : <BsFillClipboardFill />}</button>
-            </CopyToClipboard>
+        <div>
+            <button className="text-xl absolute right-2" onClick={handleCopy}>{isCopied ? <ClipBoardChecked /> : <ClipBoard />}</button>
             <code ref={codeRef}>
                 {children}
             </code>
-        </>
+        </div>
     );
 }
