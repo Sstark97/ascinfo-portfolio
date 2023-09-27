@@ -26,11 +26,11 @@ export const CodeBlockToCopy: React.FC<Props> = ({children}) => {
     };
 
     return (
-        <div>
-            <button className="text-xl absolute right-2" onClick={handleCopy}>{isCopied ? <ClipBoardChecked /> : <ClipBoard />}</button>
+        <pre>
+            <button className="absolute right-8 text-xl bg-gray-800/40 hover:bg-gray-600/40 rounded px-2 py-1.5" onClick={handleCopy}>{isCopied ? <ClipBoardChecked /> : <ClipBoard />}</button>
             <code ref={codeRef}>
                 {children}
             </code>
-        </div>
+        </pre>
     );
 }
