@@ -14,8 +14,6 @@ export default defineConfig({
       // Note: Shiki has countless langs built-in, including .astro!
       // https://github.com/shikijs/shiki/blob/main/docs/languages.md
       langs: ["javascript", "typescript", "jsx", "tsx"],
-      // Enable word wrap to prevent horizontal scrolling
-      wrap: true
     }
   },
   integrations: [tailwind(), react(), mdx()],

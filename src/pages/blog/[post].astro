@@ -75,7 +75,20 @@ const { Content, headings } = await postData.render();
         padding: 1rem;
         border-radius: 0.5rem;
         overflow-x: auto;
-        font-size: .9rem;
+        font-size: .83rem;
+        scrollbar-color: aqua;
+    }
+
+    pre::-webkit-scrollbar {
+        height: .6rem;
+    }
+
+    pre::-webkit-scrollbar-track {
+        background: #2a2a2a;
+    }
+
+    pre::-webkit-scrollbar-thumb {
+        background: #00DFFC;
     }
 
     .read-more {
