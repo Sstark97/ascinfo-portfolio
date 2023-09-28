@@ -16,5 +16,5 @@ export default defineConfig({
       langs: ["javascript", "typescript", "jsx", "tsx"]
     }
   },
-  integrations: [tailwind(), react(), mdx()],
+  integrations: [tailwind(), react(), mdx()]
 });
