@@ -32,4 +32,35 @@ describe("getAllPost should", () => {
 
         expect(allPosts).toEqual(posts);
     });
+
+    it("return posts sorted by date in ascending order", async () => {
+        const latestPost: Post = {
+            slug: "slug2",
+            title: "title2",
+            description: "description2",
+            date: new Date("2021-01-02"),
+            isPublished: true,
+            tags: ["tag1", "tag2"]
+        };
+        const posts: Post[] = [
+            {
+                slug: "slug",
+                title: "title",
+                description: "description",
+                date: new Date("2021-01-01"),
+                isPublished: true,
+                tags: ["tag1", "tag2"]
+            },
+            latestPost
+        ];
+        const PostRepository: PostRepository = {
+            findAllPosts: vi.fn().mockResolvedValue(posts),
+            findPostBySlug: vi.fn()
+        }
+        const getAllPost = new GetAllPosts(PostRepository);
+
+        const allPosts = await getAllPost.execute();
+
+        expect(allPosts[0]).toStrictEqual(latestPost);
+    });
 });
