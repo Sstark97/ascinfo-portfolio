@@ -4,18 +4,23 @@ import userEvent from "@testing-library/user-event";
 import {expect} from "vitest";
 
 describe("CodeBlockToCopy", () => {
+    async function clickInCopyButton() {
+        const copyButton = screen.getByLabelText("Copy code block");
+        await userEvent.click(copyButton);
+    }
+
     it("should render", () => {
         const {container} = render(<CodeBlockToCopy><p></p></CodeBlockToCopy>)
 
         expect(container).toBeInTheDocument();
     });
+
     it('should copy the content of children', async () => {
         const toCopy = "content to copy"
         const onCopy = vi.fn();
         render(<CodeBlockToCopy onCopy={onCopy}><p>{toCopy}</p></CodeBlockToCopy>)
 
-        const copyButton = screen.getByLabelText("Copy code block");
-        await userEvent.click(copyButton);
+        await clickInCopyButton();
 
         expect(onCopy).toHaveBeenCalledWith(toCopy);
     });
@@ -23,8 +28,7 @@ describe("CodeBlockToCopy", () => {
         const onCopy = vi.fn();
         render(<CodeBlockToCopy onCopy={onCopy}><p></p></CodeBlockToCopy>)
 
-        const copyButton = screen.getByLabelText("Copy code block");
-        await userEvent.click(copyButton);
+        await clickInCopyButton();
 
         expect(screen.getByRole("graphics-document", { name: "copy-checked" })).toBeInTheDocument();
     });
