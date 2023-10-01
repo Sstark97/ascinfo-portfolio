@@ -5,12 +5,11 @@ import {GetAllPosts} from "../../lib/application/post/getAllPosts";
 import {PostAstroContentAdapter} from "../../lib/infrastructure/adapter/PostAstroContentAdapter";
 
 const allBlogPosts = await new GetAllPosts(new PostAstroContentAdapter()).execute();
-const allBlogPostOrderByDateAsc = allBlogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 ---
 
 <Layout title="ascinfo | blog">
     <section class="mx-auto max-w-screen-xl flex flex-wrap justify-center pt-20 px-6 py-3 md:p-20 md:pb-3 lg:pt-28 lg:pb-16 md:justify-evenly lg:justify-start lg:grid-cols-3 lg:gap-6">
-        {allBlogPostOrderByDateAsc.map((post) => (
+        {allBlogPosts.map((post) => (
                 <Card
                     title={post.title}
                     image={post.image}
