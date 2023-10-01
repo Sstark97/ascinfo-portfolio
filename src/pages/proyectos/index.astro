@@ -1,8 +1,8 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import {GetAllProjects} from "../../lib/application/project/getAllProjects";
-import {ProjectAstroContentAdapter} from "../../lib/infrastructure/adapter/ProjectAstroContentAdapter";
-import ProjectCard from "../../components/astro/ProjectCard.astro";
+import Layout from '@layouts/Layout.astro';
+import {GetAllProjects} from "@application/project/getAllProjects";
+import {ProjectAstroContentAdapter} from "@infrastructure/adapter/ProjectAstroContentAdapter";
+import ProjectCard from "@components/astro/ProjectCard.astro";
 
 const allProjects = await new GetAllProjects(new ProjectAstroContentAdapter()).execute()
 ---

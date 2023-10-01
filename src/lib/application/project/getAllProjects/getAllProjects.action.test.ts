@@ -1,5 +1,5 @@
 import {GetAllProjects} from "./getAllProjects.action";
-import type {Project} from "../../../domain/model/Project.ts";
+import type {Project} from "@domain/model/Project.ts";
 import type {ProjectRepository} from "../repository/ProjectRepository.ts";
 
 describe("GetAllProjects should", () => {

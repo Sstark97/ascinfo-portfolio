@@ -1,5 +1,5 @@
 import type {PostRepository} from "../repository/postRepository.ts";
-import type {Post} from "../../../domain/model/Post.ts";
+import type {Post} from "@domain/model/Post.ts";
 
 export class GetAllPosts {
     constructor(private readonly postRepository: PostRepository) {

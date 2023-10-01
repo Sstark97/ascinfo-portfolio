@@ -1,7 +1,7 @@
 import { defineCollection } from 'astro:content';
 import {z, ZodSchema} from "astro/zod";
-import type {Post} from "../lib/domain/model/Post";
-import type {Project} from "../lib/domain/model/Project";
+import type {Post} from "@domain/model/Post.ts";
+import type {Project} from "@domain/model/Project.ts";
 
 const postSchema: ZodSchema<Post> = z.object({
     title: z.string(),

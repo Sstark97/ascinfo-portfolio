@@ -1,7 +1,6 @@
 import type {ProjectToRenderDto} from "../index.ts";
 import type {ProjectRepository} from "../repository/ProjectRepository.ts";
 import {GetProject} from "./getProject.action.ts";
-import {vi} from "vitest";
 
 describe("GetProject should", () => {
     it("return a single project", async () => {

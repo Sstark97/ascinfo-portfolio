@@ -1,6 +1,6 @@
-import type {PostRepository} from "../../application/post/repository/postRepository.ts";
+import type {PostRepository} from "@application/post/repository/postRepository.ts";
 import {getCollection, getEntry} from "astro:content";
-import type {Post} from "../../domain/model/Post.ts";
+import type {Post} from "@domain/model/Post.ts";
 
 export class PostAstroContentAdapter implements PostRepository {
     async findAllPosts(){

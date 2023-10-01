@@ -4,6 +4,14 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "strictNullChecks": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@application/*": ["lib/application/*"],
+      "@infrastructure/*": ["lib/infrastructure/*"],
+        "@domain/*": ["lib/domain/*"],
+    }
   }
 }

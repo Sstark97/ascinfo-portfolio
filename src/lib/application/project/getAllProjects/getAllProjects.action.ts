@@ -1,5 +1,5 @@
 import type {ProjectRepository} from "../repository/ProjectRepository.ts";
-import type {Project} from "../../../domain/model/Project.ts";
+import type {Project} from "@domain/model/Project.ts";
 
 export class GetAllProjects {
     constructor(private readonly projectRepository: ProjectRepository) {}

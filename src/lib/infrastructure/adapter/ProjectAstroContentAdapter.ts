@@ -1,6 +1,5 @@
 import {getCollection, getEntry} from "astro:content";
-import type {ProjectRepository} from "../../application/project/repository/ProjectRepository.ts";
-import type {Project} from "../../domain/model/Project.ts";
+import type {ProjectRepository} from "@application/project/repository/ProjectRepository.ts";
 
 export class ProjectAstroContentAdapter implements ProjectRepository{
     async findAllProjects(){

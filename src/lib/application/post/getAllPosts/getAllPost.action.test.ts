@@ -1,5 +1,5 @@
 import {GetAllPosts} from "./getAllPosts.action.ts";
-import type {Post} from "../../../domain/model/Post.ts";
+import type {Post} from "@domain/model/Post.ts";
 import type {PostRepository} from "../repository/postRepository";
 
 describe("getAllPost should", () => {
