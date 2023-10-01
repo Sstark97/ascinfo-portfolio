@@ -3,20 +3,19 @@ import {CodeBlockToCopy} from "@components/react/codeBlockToCopy/CodeBlockToCopy
 import userEvent from "@testing-library/user-event";
 import {expect} from "vitest";
 
-describe("CodeBlockToCopy", () => {
+describe("CodeBlockToCopy should", () => {
     async function clickInCopyButton() {
         const copyButton = screen.getByLabelText("Copy code block");
         await userEvent.click(copyButton);
     }
 
-    it("should show a copy to clip board icon to click", () => {
-        const {container} = render(<CodeBlockToCopy><p></p></CodeBlockToCopy>)
+    it("show a copy to clip board icon to click", () => {
+        render(<CodeBlockToCopy><p></p></CodeBlockToCopy>)
 
-        expect(container).toBeInTheDocument();
         expect(screen.getByRole("graphics-document", { name: "copy-to-clipboard" })).toBeInTheDocument();
     });
 
-    it('should copy the content of children', async () => {
+    it('copy the content of children', async () => {
         const toCopy = "content to copy"
         const onCopy = vi.fn();
         render(<CodeBlockToCopy onCopy={onCopy}><p>{toCopy}</p></CodeBlockToCopy>)
@@ -25,7 +24,7 @@ describe("CodeBlockToCopy", () => {
 
         expect(onCopy).toHaveBeenCalledWith(toCopy);
     });
-    it('should show a clipboard check icon when copy the content', async () => {
+    it('show a clipboard check icon when copy the content', async () => {
         const onCopy = vi.fn();
         render(<CodeBlockToCopy onCopy={onCopy}><p></p></CodeBlockToCopy>)
 
