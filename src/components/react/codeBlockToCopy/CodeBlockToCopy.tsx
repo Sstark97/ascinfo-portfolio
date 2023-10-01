@@ -4,9 +4,10 @@ import ClipBoardChecked from "@components/react/ClipBoardChecked";
 
 interface Props {
     children: React.ReactElement<HTMLElement>;
+    onCopy?: (text: string) => void;
 }
 
-export const CodeBlockToCopy: React.FC<Props> = ({children}) => {
+export const CodeBlockToCopy: React.FC<Props> = ({children, onCopy}) => {
     const [isCopied, setIsCopied] = React.useState(false);
     const [codeText, setCodeText] = React.useState("");
     const codeRef = React.useRef<HTMLDivElement>(null);
@@ -17,8 +18,12 @@ export const CodeBlockToCopy: React.FC<Props> = ({children}) => {
         }
     }, [codeRef])
 
+    const copyToClipboard = (text: string) => {
+        onCopy ? onCopy(text) : navigator.clipboard.writeText(text);
+    }
+
     const handleCopy = () => {
-        navigator.clipboard.writeText(codeText);
+        copyToClipboard(codeText);
         setIsCopied(true);
         setTimeout(() => {
             setIsCopied(false)
