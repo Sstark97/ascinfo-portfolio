@@ -6,10 +6,6 @@ import {
 } from "astro-navbar";
 import {RocketLaunchIcon} from "@heroicons/react/24/outline";
 const path = Astro.url.pathname;
-console.log(path)
-console.log(path === "/")
-console.log(path.startsWith("/blog"))
-console.log(path.startsWith("/proyectos"))
 ---
 <header class="w-full bg-black lg:flex justify-between px-6 py-3 lg:max-w-none lg:px-8 lg:py-5 mx-auto border-t-transparent border-x-transparent border-b-[0.75px] border-b-primary rounded-b-none fixed z-10">
     <Astronav closeOnClick>
