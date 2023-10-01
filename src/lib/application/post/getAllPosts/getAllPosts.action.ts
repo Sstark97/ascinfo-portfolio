@@ -5,6 +5,8 @@ export class GetAllPosts {
     }
 
     async execute() {
-        return await this.postRepository.findAllPosts();
+        const allPosts = await this.postRepository.findAllPosts();
+
+        return allPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
     }
 }
