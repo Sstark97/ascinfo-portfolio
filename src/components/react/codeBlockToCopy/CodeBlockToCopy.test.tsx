@@ -9,10 +9,11 @@ describe("CodeBlockToCopy", () => {
         await userEvent.click(copyButton);
     }
 
-    it("should render", () => {
+    it("should show a copy to clip board icon to click", () => {
         const {container} = render(<CodeBlockToCopy><p></p></CodeBlockToCopy>)
 
         expect(container).toBeInTheDocument();
+        expect(screen.getByRole("graphics-document", { name: "copy-to-clipboard" })).toBeInTheDocument();
     });
 
     it('should copy the content of children', async () => {
