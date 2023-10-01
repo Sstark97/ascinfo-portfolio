@@ -1,6 +1,6 @@
 import React from "react";
-import ClipBoard from "@components/react/ClipBoard";
-import ClipBoardChecked from "@components/react/ClipBoardChecked";
+import {ClipBoard} from "@components/react/clipBoard";
+import {ClipBoardChecked} from "@components/react/clipBoardChecked";
 
 interface Props {
     children: React.ReactElement<HTMLElement>;
