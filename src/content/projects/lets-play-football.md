@@ -19,3 +19,7 @@ se ha desarrollado para una entrevista técnica de React.
 - React Router
 - ESLint
 - Prettier
+
+## Enlaces
+- [Repositorio](https://github.com/Sstark97/lets_play_football)
+- [Demo](https://lets-play-football.netlify.app/)

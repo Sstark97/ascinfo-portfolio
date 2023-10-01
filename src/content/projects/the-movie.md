@@ -19,3 +19,7 @@ entrevista técnica de React.
 - React Router
 - ESLint
 - Prettier
+
+## Enlaces
+- [Repositorio](https://github.com/Sstark97/the_movie)
+- [Demo](https://movie-in.netlify.app/)

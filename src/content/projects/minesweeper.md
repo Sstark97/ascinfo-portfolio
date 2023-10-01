@@ -22,3 +22,7 @@ a internet.
 - JavaScript
 - TailwindCSS
 - ESLint
+
+## Enlaces
+- [Repositorio](https://github.com/Sstark97/DEW/tree/main/minesweeper)
+- [Demo](https://minesweeper-dew.netlify.app/)

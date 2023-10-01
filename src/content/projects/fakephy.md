@@ -19,3 +19,7 @@ la primera página.
 - TypeScript
 - TailwindCSS
 - SWR
+
+## Enlaces
+- [Repositorio](https://github.com/Sstark97/fakephy)
+- [Demo](https://fakephy.netlify.app/)
