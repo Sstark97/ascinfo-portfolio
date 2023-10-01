@@ -1,10 +1,12 @@
 ---
 title: "Fakephy"
-image: "/images/projects/fakephy.webp"
+image: "/images/projects/fakephy/fakephy.webp"
 repository: "https://github.com/Sstark97/fakephy"
 demo: "https://fakephy.netlify.app/"
 date: 2022-09-14
 ---
+
+![Fakephy Banner](/images/projects/fakephy/fakephy-banner.webp)
 
 Aplicación sencilla para buscar gifs consumiendo la API de [Giphy](https://giphy.com/).
 

@@ -1,10 +1,12 @@
 ---
 title: "MinesWeeper"
-image: "/images/projects/minesweeper.webp"
+image: "/images/projects/minesweeper/minesweeper.webp"
 repository: "https://github.com/Sstark97/DEW/tree/main/minesweeper"
 demo: "https://minesweeper-dew.netlify.app/"
 date: 2022-11-13
 ---
+
+![Minesweeper Banner](/images/projects/minesweeper/minesweeper-banner.webp)
 
 Adaptación del famoso juego busca minas, con 3 niveles de dificultad en el que habrán las siguientes minas a evitar:
 <ul class="common-list">
