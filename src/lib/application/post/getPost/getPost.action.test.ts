@@ -1,6 +1,7 @@
 import {GetPost} from "./getPost.action.ts";
 import type {PostToRenderDto} from "../dto";
 import type {PostRepository} from "../repository/postRepository";
+import {vi} from "vitest";
 
 describe("getPost should", () => {
     it("return a single post", async () => {
@@ -11,7 +12,7 @@ describe("getPost should", () => {
             date: new Date("2021-01-01"),
             isPublished: true,
             tags: ["tag1", "tag2"],
-            render: () => {}
+            render: vi.fn()
         };
 
         const PostRepository: PostRepository = {
