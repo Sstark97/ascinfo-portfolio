@@ -36,7 +36,7 @@ const {title, image, href, repository, date, demo} = Astro.props;
         <a href={repository} aria-label="Github">
             <Icon name="icon-park:github" class="w-6 h-6 md:mr-3 lg:w-[1.4rem] lg:h-[1.4rem] inline-block fill-primary md:w-8 md:h-8 hover:opacity-40" />
         </a>
-        <a href={demo}>
+        <a href={demo} aria-label="Demo" role="link">
             <Icon name="octicon:link-16" class="w-6 h-6 lg:w-[1.4rem] lg:h-[1.4rem] inline-block text-primary md:w-8 md:h-8 hover:opacity-40" />
         </a>
     </div>

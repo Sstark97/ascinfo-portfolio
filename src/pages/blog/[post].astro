@@ -6,22 +6,23 @@ import {PostAstroContentAdapter} from "../../lib/infrastructure/adapter/PostAstr
 import {GetPost} from "../../lib/application/post/getPost";
 
 export async function getStaticPaths() {
-  const allBlogPosts = await new GetAllPosts(new PostAstroContentAdapter()).execute();
-  return allBlogPosts.map((post) => {
-    return {
-      params: {
-        post: post.slug,
-      }
-    }
-  });
+    const allBlogPosts = await new GetAllPosts(new PostAstroContentAdapter()).execute();
+    return allBlogPosts.map((post) => {
+        return {
+            params: {
+                post: post.slug,
+            }
+        }
+    });
 }
 
 const {post} = Astro.params;
 const postData = await new GetPost(new PostAstroContentAdapter()).execute(post);
-const { Content, headings } = await postData.render();
+const {Content, headings} = await postData.render();
 ---
 
-<Layout title={postData.slug} canonical={postData.canonical_url}>
+<Layout title={postData.slug} canonical={postData.canonical_url} description={postData.description}
+        image={postData.image}>
     <article class="pt-20 px-8 md:pb-3 lg:pt-28 lg:pb-16 lg:px-0">
         <h1>{postData.title}</h1>
         <Image
@@ -32,7 +33,7 @@ const { Content, headings } = await postData.render();
                 class="w-full"
                 transition:name={`img-${postData.title}`}
         />
-        <Content />
+        <Content/>
     </article>
 </Layout>
 

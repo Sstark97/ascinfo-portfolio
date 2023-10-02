@@ -1,48 +1,75 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import {ViewTransitions} from 'astro:transitions';
+import {SEO} from "astro-seo";
 import NavBar from "@components/astro/NavBar.astro";
 import Footer from "@components/astro/Footer.astro";
 interface Props {
-	title: string;
-	canonical?: string;
+    title: string;
+    description?: string;
+    canonical?: string;
+    image?: string;
 }
 
-const { title, canonical } = Astro.props;
+const defaultDescription = "Soy Aitor Santana, un apasionado Desarrollador de Software con experiencia en múltiples lenguajes y frameworks, como Java, Python, TypeScript, Spring Boot, Flask, Angular, React, Next.js, entre otros. Me enfoco en escribir código limpio y mantenerlo sostenible, aplicando metodologías como TDD, patrones de diseño y arquitecturas limpias. Actualmente, trabajo en Lean Mind, donde colaboro con un equipo excepcional que me impulsa a crecer tanto profesional como personalmente.";
+const {title, description, canonical, image} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
-		{canonical ? <link rel="canonical" href={canonical} /> : null}
-		<title>{title}</title>
-		<ViewTransitions />
-	</head>
-	<body class="flex flex-col min-h-screen bg-black text-white scrollbar scrollbar-thumb-primary scrollbar- scrollbar-w-2 scrollbar-corner-rounded-xl">
-		<NavBar />
-			<main class="flex-1">
-				<slot />
-			</main>
-	    <Footer />
-	</body>
+<head>
+    <SEO
+            title={title}
+            description={description ?? defaultDescription}
+            openGraph={{
+                basic: {
+                    title,
+                    description,
+                    siteName: "ascinfo.dev",
+                    type: 'website',
+                    image: image ?? "/images/aitor-profile.webp",
+                }
+            }}
+            twitter={{
+                creator: "@aitorsci"
+            }}
+            extend={{
+                link: [{rel: "icon", href: "/favicon.svg"}],
+
+                meta: [
+                    {
+                        name: "twitter:image",
+                        content: image,
+                    },
+                    {name: "twitter:title", content: title},
+                    {name: "twitter:description", content: description},
+                ],
+            }}
+            canonical={canonical}
+            charset="UTF-8"
+    />
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="robots" href="/robots.txt" />
+    <ViewTransitions/>
+</head>
+<body class="flex flex-col min-h-screen bg-black text-white scrollbar scrollbar-thumb-primary scrollbar- scrollbar-w-2 scrollbar-corner-rounded-xl">
+<NavBar/>
+<main class="flex-1">
+    <slot/>
+</main>
+<Footer/>
+</body>
 </html>
 <style is:global>
-	::-webkit-scrollbar {
-		height: .6rem;
-	}
+    ::-webkit-scrollbar {
+        height: .6rem;
+    }
 
-	::-webkit-scrollbar-track {
-		background: #2a2a2a;
-	}
+    ::-webkit-scrollbar-track {
+        background: #2a2a2a;
+    }
 
-	::-webkit-scrollbar-thumb {
-		background: #00DFFC;
-	}
+    ::-webkit-scrollbar-thumb {
+        background: #00DFFC;
+    }
 </style>

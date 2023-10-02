@@ -1,14 +1,15 @@
 import {getCollection, getEntry} from "astro:content";
 import type {ProjectRepository} from "@application/project/repository/ProjectRepository.ts";
 
-export class ProjectAstroContentAdapter implements ProjectRepository{
-    async findAllProjects(){
+export class ProjectAstroContentAdapter implements ProjectRepository {
+    async findAllProjects() {
         const projectsCollection = await getCollection("projects");
         return projectsCollection.map((project) => {
-            const {title, image, repository, demo, date} = project.data;
+            const {title, description, image, repository, demo, date} = project.data;
             return {
                 slug: project.slug,
                 title,
+                description,
                 image,
                 repository,
                 demo,
@@ -17,13 +18,14 @@ export class ProjectAstroContentAdapter implements ProjectRepository{
         });
     }
 
-    async findProjectBySlug(slug: string){
+    async findProjectBySlug(slug: string) {
         const projectEntry = await getEntry("projects", slug);
         if (projectEntry) {
-            const {title, image, repository, demo, date} = projectEntry.data;
+            const {title, image, repository, demo, date, description} = projectEntry.data;
             return {
                 slug: projectEntry.slug,
                 title,
+                description,
                 image,
                 repository,
                 demo,

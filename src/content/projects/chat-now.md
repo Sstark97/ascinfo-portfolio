@@ -1,5 +1,6 @@
 ---
 title: "Chat Now"
+description: "Aplicación web de mensajería instantánea en tiempo real."
 image: "/images/projects/chat-now/chat-now.webp"
 repository: "https://github.com/Sstark97/chat-now"
 demo: "https://chat-now-psi.vercel.app/"

@@ -1,5 +1,6 @@
 ---
 title: "MinesWeeper"
+description: "Adaptación del famoso juego busca minas, con 3 niveles de dificultad."
 image: "/images/projects/minesweeper/minesweeper.webp"
 repository: "https://github.com/Sstark97/DEW/tree/main/minesweeper"
 demo: "https://minesweeper-dew.netlify.app/"

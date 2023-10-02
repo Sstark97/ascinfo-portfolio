@@ -1,5 +1,6 @@
 ---
 title: "Let's Play Football"
+description: "Aplicación web en la que se pueden ver los jugadores del PSG, con vista detallada de cada uno de ellos."
 image: "/images/projects/lets-play-football/lets-play-football.webp"
 repository: "https://github.com/Sstark97/lets_play_football"
 demo: "https://lets-play-football.netlify.app/"

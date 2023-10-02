@@ -1,5 +1,6 @@
 ---
 title: "Portfolio API"
+description: "API para guardar tu portfolio y utilizarlo en tus proyectos."
 image: "/images/projects/portfolio-api/portfolio-api.webp"
 repository: "https://github.com/Sstark97/portfolio-api"
 demo: "https://portfolioapi.onrender.com/"

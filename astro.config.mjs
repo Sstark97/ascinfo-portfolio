@@ -1,10 +1,14 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
+import robotsTxt from "astro-robots-txt";
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://ascinfo.dev",
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
@@ -16,5 +20,5 @@ export default defineConfig({
       langs: ["javascript", "typescript", "jsx", "tsx"]
     }
   },
-  integrations: [tailwind(), react(), mdx()]
+  integrations: [react(), tailwind(), mdx(), robotsTxt(), sitemap()]
 });

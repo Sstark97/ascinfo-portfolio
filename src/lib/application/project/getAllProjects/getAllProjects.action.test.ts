@@ -7,12 +7,14 @@ describe("GetAllProjects should", () => {
         const projects: Project[] = [
             {
                 title: "project1",
+                description: "description 1",
                 repository: "http://github.com",
                 demo: "http://demo.com",
                 date: new Date("2021-01-01")
             },
             {
                 title: "project2",
+                description: "description 2",
                 repository: "http://github.com",
                 demo: "http://demo.com",
                 date: new Date("2021-01-02")
@@ -32,6 +34,7 @@ describe("GetAllProjects should", () => {
     it("return projects sorted by date in ascending order", async () => {
         const latestProject: Project = {
             title: "project2",
+            description: "description 2",
             repository: "http://github.com",
             demo: "http://demo.com",
             date: new Date("2021-01-02")
@@ -39,6 +42,7 @@ describe("GetAllProjects should", () => {
         const projects: Project[] = [
             {
                 title: "project1",
+                description: "description 1",
                 repository: "http://github.com",
                 demo: "http://demo.com",
                 date: new Date("2021-01-01")
