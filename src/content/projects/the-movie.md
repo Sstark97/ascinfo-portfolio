@@ -1,5 +1,6 @@
 ---
 title: "The Movie"
+description: "Aplicación web para buscar películas consumiendo la API de The Movie Database, para una entrevista técnica de React."
 image: "/images/projects/the-movie/the-movie.webp"
 repository: "https://github.com/Sstark97/the_movie"
 demo: "https://movie-in.netlify.app/"

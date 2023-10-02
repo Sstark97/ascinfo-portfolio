@@ -7,6 +7,7 @@ describe("GetProject should", () => {
         const project: ProjectToRenderDto = {
             slug: "slug",
             title: "project1",
+            description: "description 1",
             repository: "http://github.com",
             demo: "http://demo.com",
             date: new Date("2021-01-01"),

@@ -1,5 +1,6 @@
 ---
 title: "Cyborg"
+description: "Tienda online de videojuegos"
 image: "/images/projects/cyborg/cyborg.webp"
 repository: "https://github.com/Sstark97/Cyborg"
 date: 2023-02-01

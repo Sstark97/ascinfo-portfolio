@@ -1,5 +1,6 @@
 ---
 title: "Fakephy"
+description: "Aplicación sencilla para buscar gifs consumiendo la API de Giphy."
 image: "/images/projects/fakephy/fakephy.webp"
 repository: "https://github.com/Sstark97/fakephy"
 demo: "https://fakephy.netlify.app/"
