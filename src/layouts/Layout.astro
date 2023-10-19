@@ -1,6 +1,5 @@
 ---
 import {ViewTransitions} from 'astro:transitions';
-import {SEO} from "astro-seo";
 import NavBar from "@components/astro/NavBar.astro";
 import Footer from "@components/astro/Footer.astro";
 interface Props {
@@ -12,47 +11,46 @@ interface Props {
 
 const {title, description, canonical, image} = Astro.props;
 const defaultDescription = "Soy Aitor Santana, un apasionado Desarrollador de Software con experiencia en múltiples lenguajes y frameworks, como Java, Python, TypeScript, Spring Boot, Flask, Angular, React, Next.js, entre otros. Me enfoco en escribir código limpio y mantenerlo sostenible, aplicando metodologías como TDD, patrones de diseño y arquitecturas limpias. Actualmente, trabajo en Lean Mind, donde colaboro con un equipo excepcional que me impulsa a crecer tanto profesional como personalmente.";
-const completeImageUrl = `https://ascinfo.dev${image}`;
+const completeImageUrl = `https://ascinfo.dev${image ?? "/images/aitor-profile.webp"}`;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <SEO
-            title={title}
-            description={description ?? defaultDescription}
-            openGraph={{
-                basic: {
-                    title,
-                    description,
-                    siteName: "ascinfo.dev",
-                    type: 'website',
-                    image: completeImageUrl ?? "https://ascinfo.dev/images/aitor-profile.webp",
-                }
-            }}
-            twitter={{
-                creator: "@aitorsci"
-            }}
-            extend={{
-                link: [{rel: "icon", href: "/favicon.svg"}],
-
-                meta: [
-                    {
-                        name: "twitter:image",
-                        content: image,
-                    },
-                    {name: "twitter:title", content: title},
-                    {name: "twitter:description", content: description},
-                ],
-            }}
-            canonical={canonical}
-            charset="UTF-8"
-    />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width"/>
-    <!-- Meta keywords -->
-    <meta name="keywords" content="aitor santana, aitor santana cabrera, aitor, santana, ascinfo, ascinfo.dev"/>
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="robots" href="/robots.txt" />
+
+    <meta name="keywords"
+          content="aitor santana, aitor santana cabrera, aitor, santana, Aitor Santana, Aitor Santana Cabrera, Aitor, ascinfo, ascinfo.dev, TDD, Clean Code, Código Limpio, Development, Desarrollo, Back-end, Front-end, Mobile, App, Application, Website, Web, Aplicación Móvil, Kotlin, Angular, React, Redux, JavaScript, Java, Programmers, Pair programming, Canary Island, Islas Canarias, Testing Driven Development, Test, Learning, Formación"/>
+
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description ?? defaultDescription}/>
+    <meta property="og:image" content={completeImageUrl}/>
+    <meta property="og:image:url" content={completeImageUrl}/>
+    <meta property="og:image:secure_url" content={completeImageUrl}/>
+    <meta property="og:image:alt" content={image ? description : "Aitor Santana Cabrera"}/>
+    <meta property="og:url" content="https://ascinfo.dev"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="es_ES"/>
+    <meta property="og:site_name" content="ascinfo.dev"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@aitorsci"/>
+    <meta name="twitter:creator" content="@aitorsci">
+    <meta name="twitter:title" content={title}/>
+    <meta name="twitter:description" content={description ?? defaultDescription}/>
+    <meta name="twitter:image" content={image ? completeImageUrl : "/images/aitor-profile.webp"}/>
+    <meta name="twitter:image:alt" content="Aitor Santana"/>
+    <meta name="twitter:domain" content="ascinfo.dev"/>
+    <meta name="twitter:url" content="https://ascinfo.dev"/>
+
+    <meta name="description" content={description ?? defaultDescription}/>
+    <link rel="sitemap" href="/sitemap-index.xml"/>
+    <link rel="robots" href="/robots.txt"/>
+    {canonical ?
+            <link rel="canonical" href={canonical}/> : null}
+    <link rel="icon" href="/favicon.svg" type="image/x-icon"/>
+    <title>{title}</title>
     <ViewTransitions/>
 </head>
 <body class="flex flex-col min-h-screen bg-black text-white scrollbar scrollbar-thumb-primary scrollbar- scrollbar-w-2 scrollbar-corner-rounded-xl">

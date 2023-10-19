@@ -3,7 +3,6 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import robotsTxt from "astro-robots-txt";
-
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
