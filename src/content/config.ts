@@ -2,12 +2,22 @@ import { defineCollection } from 'astro:content';
 import {z, ZodSchema} from "astro/zod";
 import type {Post} from "@domain/model/Post.ts";
 import type {Project} from "@domain/model/Project.ts";
+import type {Presentation} from "@domain/model/Presentation.ts";
 
 const postSchema: ZodSchema<Post> = z.object({
     title: z.string(),
     description: z.string(),
     image: z.string().optional(),
     canonical_url: z.string().optional(),
+    date: z.date(),
+    isPublished: z.boolean(),
+    tags: z.array(z.string()),
+});
+
+const presentationSchema: ZodSchema<Presentation> = z.object({
+    title: z.string(),
+    description: z.string(),
+    image: z.string().optional(),
     date: z.date(),
     isPublished: z.boolean(),
     tags: z.array(z.string()),
@@ -28,6 +38,12 @@ const postCollection = defineCollection({
     schema: postSchema,
 });
 
+const presentationCollection = defineCollection({
+    type: 'content', // v2.5.0 y posteriores
+    schema: presentationSchema,
+});
+
+
 const projectCollection = defineCollection({
     type: 'content', // v2.5.0 y posterioresç
     schema: projectSchema,
@@ -35,5 +51,6 @@ const projectCollection = defineCollection({
 
 export const collections = {
     'posts': postCollection,
+    'presentations': presentationCollection,
     'projects': projectCollection,
 };

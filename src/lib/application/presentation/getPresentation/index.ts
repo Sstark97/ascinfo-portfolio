@@ -1,0 +1,1 @@
+export {GetPresentation} from "./getPresentation.action.ts";

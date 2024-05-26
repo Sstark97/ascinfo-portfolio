@@ -1,0 +1,107 @@
+---
+import {Image} from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import {GetAllPresentations} from "../../lib/application/presentation/getAllPresentations";
+import {PresentationAstroContentAdapter} from "../../lib/infrastructure/adapter/PresentationAstroContentAdapter";
+import {GetPresentation} from "../../lib/application/presentation/getPresentation";
+
+export async function getStaticPaths() {
+    const allPresentations = await new GetAllPresentations(new PresentationAstroContentAdapter()).execute();
+    return allPresentations.map((presentation) => {
+        return {
+            params: {
+                presentation: presentation.slug,
+            }
+        }
+    });
+}
+
+const {presentation} = Astro.params;
+const presentationData = await new GetPresentation(new PresentationAstroContentAdapter()).execute(presentation);
+const {Content, headings} = await presentationData.render();
+---
+
+<Layout title={presentationData.slug} description={presentationData.description}
+        image={presentationData.image}>
+    <article class="pt-20 px-8 md:pb-3 lg:pt-28 lg:pb-16 lg:px-0">
+        <h1>{presentationData.title}</h1>
+        <Image
+                src={presentationData.image}
+                alt={presentationData.title}
+                width="64"
+                height="64"
+                class="w-full"
+                transition:name={`img-${presentationData.title}`}
+        />
+        <Content/>
+    </article>
+</Layout>
+
+<style is:inline>
+    article {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    ol {
+        list-style-type: decimal;
+        margin-left: 2rem;
+    }
+
+    a:not(nav a) {
+        color: #00DFFC;
+        font-weight: 600;
+        padding: .6rem 0;
+    }
+
+    a:hover {
+        opacity: 0.8;
+    }
+
+    p {
+        margin: 1rem 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    pre {
+        background-color: #1a202c;
+        color: #fff;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        font-size: .83rem;
+    }
+
+    pre::-webkit-scrollbar {
+        height: .6rem;
+    }
+
+    pre::-webkit-scrollbar-track {
+        background: #2a2a2a;
+    }
+
+    pre::-webkit-scrollbar-thumb {
+        background: #00DFFC;
+    }
+
+    .read-more {
+        color: #00DFFC;
+    }
+</style>

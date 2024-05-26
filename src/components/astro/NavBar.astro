@@ -18,17 +18,21 @@ const path = Astro.url.pathname;
                 <MenuIcon class="w-7 h-7 text-white"/>
             </div>
         </div>
-        <MenuItems class="hidden lg:flex lg:w-64 items-center justify-around text-white">
+        <MenuItems class="hidden lg:flex lg:w-72 items-center justify-between text-white">
             <a href="/"
-               class={`flex items-center hover:opacity-80 transition-colors p-1 ${path === "/" ? "text-primary" : ""}`}>
+               class={`flex items-center hover:opacity-80 transition-colors mr-1 ${path === "/" ? "text-primary" : ""}`}>
                 Sobre mí
             </a>
             <a href="/blog"
-               class={`flex items-center hover:opacity-80 transition-colors p-1 ${path.startsWith("/blog") ? "text-primary" : ""}`}>
+               class={`flex items-center hover:opacity-80 transition-colors mr-1 ${path.startsWith("/blog") ? "text-primary" : ""}`}>
                 Blog
             </a>
+            <a href="/charlas"
+               class={`flex items-center hover:opacity-80 transition-colors mr-1 ${path.startsWith("/charlas") ? "text-primary" : ""}`}>
+                Charlas
+            </a>
             <a href="/proyectos"
-               class={`flex items-center hover:opacity-80 transition-colors p-1 ${path.startsWith("/proyectos") ? "text-primary" : ""}`}>
+               class={`flex items-center hover:opacity-80 transition-colors mr-1 ${path.startsWith("/proyectos") ? "text-primary" : ""}`}>
                 Proyectos
             </a>
         </MenuItems>
