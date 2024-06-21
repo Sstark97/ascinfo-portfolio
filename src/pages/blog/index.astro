@@ -8,7 +8,7 @@ const allBlogPosts = await new GetAllPosts(new PostAstroContentAdapter()).execut
 const blogDescription = "Explora mis artículos sobre desarrollo de software y tecnología, donde comparto conocimientos sobre programación en diversos lenguajes, mejores prácticas de desarrollo, patrones de diseño, consejos para escribir código limpio y mucho más. Acompáñame en un viaje de aprendizaje y mejora continua en el mundo del desarrollo de software.";
 ---
 
-<Layout title="ascinfo | blog" description={blogDescription}>
+<Layout title="Aitor Santana | Blog" description={blogDescription}>
     <section class="mx-auto max-w-screen-xl flex flex-wrap justify-center pt-20 px-6 py-3 md:p-20 md:pb-3 lg:pt-28 lg:pb-16 md:justify-evenly lg:justify-start lg:grid-cols-3 lg:gap-6">
         {allBlogPosts.map((post) => (
                 <Card

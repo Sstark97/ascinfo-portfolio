@@ -8,7 +8,7 @@ const allProjects = await new GetAllProjects(new ProjectAstroContentAdapter()).e
 const projectsDescription = "Descubre mis proyectos destacados en el mundo del desarrollo de software. Desde aplicaciones web innovadoras hasta soluciones de software personalizadas, mis proyectos representan mi pasión por la programación y la creación de soluciones tecnológicas."
 ---
 
-<Layout title="ascinfo | proyectos" description={projectsDescription}>
+<Layout title="Aitor Santana | Proyectos" description={projectsDescription}>
     <section class="mx-auto max-w-screen-xl flex flex-wrap justify-center pt-20 px-6 py-3 md:p-20 md:pb-3 lg:pt-28 lg:pb-16 md:justify-evenly lg:grid-cols-3 lg:gap-6">
     {
         allProjects.map(project => (
