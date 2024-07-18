@@ -1,5 +1,5 @@
 ---
-title: La saga Mars Rover - Shortcuts IntelliJ
+title: "La saga Mars Rover - Shortcuts IntelliJ"
 image: "/images/blog/shortcuts_intellij.webp"
 description: "Este artículo forma parte de la Saga Mars Rover, en la que vamos mostrando el desarrollo de la kata 
 y lo que vamos aprendiendo en ella..."
