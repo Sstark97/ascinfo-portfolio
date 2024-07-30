@@ -3,6 +3,7 @@ import {ViewTransitions} from 'astro:transitions';
 import NavBar from "@components/astro/NavBar.astro";
 import Footer from "@components/astro/Footer.astro";
 import {capitalizeTitle} from "../lib/domain/TitleConverter";
+import MetaStructureData from "../components/astro/MetaStructureData.astro";
 interface Props {
     title: string;
     description?: string;
@@ -48,6 +49,7 @@ const pageCanonical = canonical ?? "https://ascinfo.dev";
     <meta name="twitter:url" content="https://ascinfo.dev"/>
 
     <meta name="description" content={description ?? defaultDescription}/>
+    <MetaStructureData />
     <link rel="sitemap" href="/sitemap-index.xml"/>
     <link rel="robots" href="/robots.txt"/>
     <link rel="canonical" href={pageCanonical}/>
