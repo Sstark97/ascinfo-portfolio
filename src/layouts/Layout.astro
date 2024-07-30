@@ -11,9 +11,10 @@ interface Props {
 }
 
 const {title, description, canonical, image} = Astro.props;
-const defaultDescription = "Soy Aitor Santana, un apasionado Desarrollador de Software con experiencia en múltiples lenguajes y frameworks, como Java, Python, TypeScript, Spring Boot, Flask, Angular, React, Next.js, entre otros. Me enfoco en escribir código limpio y mantenerlo sostenible, aplicando metodologías como TDD, patrones de diseño y arquitecturas limpias. Actualmente, trabajo en Lean Mind, donde colaboro con un equipo excepcional que me impulsa a crecer tanto profesional como personalmente.";
+const defaultDescription = `Soy Aitor Santana, Desarrollador de Software apasionado por escribir código limpio y sostenible, aplicando TDD y buenas prácticas como patrones de diseño y arquitecturas limpias. En Lean Mind, colaboro con un equipo que me impulsa a crecer profesionalmente.`;
 const completeImageUrl = `https://ascinfo.dev${image ?? "/images/aitor-profile.webp"}`;
 const formattedTitle = capitalizeTitle(title);
+const pageCanonical = canonical ?? "https://ascinfo.dev";
 ---
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ const formattedTitle = capitalizeTitle(title);
     <meta name="viewport" content="width=device-width"/>
 
     <meta name="keywords"
-          content="aitor santana, aitor santana cabrera, aitor, santana, Aitor Santana, Aitor Santana Cabrera, Aitor, ascinfo, ascinfo.dev, TDD, Clean Code, Código Limpio, Development, Desarrollo, Back-end, Front-end, Mobile, App, Application, Website, Web, Aplicación Móvil, Kotlin, Angular, React, Redux, JavaScript, Java, Programmers, Pair programming, Canary Island, Islas Canarias, Testing Driven Development, Test, Learning, Formación"/>
+          content="aitor santana, aitor santana cabrera, aitor, santana, Aitor Santana, Aitor Santana Cabrera, Aitor, ascinfo, ascinfo.dev, TDD, Clean Code, Código Limpio"/>
 
     <meta property="og:title" content={formattedTitle}/>
     <meta property="og:description" content={description ?? defaultDescription}/>
@@ -49,9 +50,9 @@ const formattedTitle = capitalizeTitle(title);
     <meta name="description" content={description ?? defaultDescription}/>
     <link rel="sitemap" href="/sitemap-index.xml"/>
     <link rel="robots" href="/robots.txt"/>
-    {canonical ?
-            <link rel="canonical" href={canonical}/> : null}
+    <link rel="canonical" href={pageCanonical}/>
     <link rel="icon" href="/favicon.svg" type="image/x-icon"/>
+    <meta name="title" content={formattedTitle} />
     <title>{formattedTitle}</title>
     <ViewTransitions/>
 </head>
