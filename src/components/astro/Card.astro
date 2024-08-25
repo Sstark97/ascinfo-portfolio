@@ -20,11 +20,11 @@ const {title, image, href, date, tags} = Astro.props;
 <article class="w-10/12 md:w-[45%] lg:w-[30%] lg:hover:scale-105 lg:ease-in-out lg:duration-300 flex flex-col items-center justify-center mt-4 p-4 space-y-4 bg-fourth rounded-lg shadow-2xl">
     <a href={href}>
         <Image
-			src={image}
-			alt={title}
-			width={64}
-			height={64}
-			class="w-full h-auto min-h-[21vh] object-cover mb-3"
+                src={image}
+                alt={title}
+                width={64}
+                height={64}
+                class="w-full h-[21vh] object-cover mb-3"
         />
         <h3 class= "text-xl font-bold">{title}</h3>
         <p class="text-gray-300 font-semibold text-opacity-75 my-1">{formatDate(date)}</p>

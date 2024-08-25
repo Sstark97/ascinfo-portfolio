@@ -11,14 +11,14 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.1.1",
-    "@astrojs/react": "^3.6.1",
+    "@astrojs/mdx": "^3.1.4",
+    "@astrojs/react": "^3.6.2",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
     "@heroicons/react": "^2.0.18",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^4.12.3",
+    "astro": "^4.14.5",
     "astro-icon": "^0.8.1",
     "astro-navbar": "^2.2.0",
     "astro-robots-txt": "^1.0.0",
