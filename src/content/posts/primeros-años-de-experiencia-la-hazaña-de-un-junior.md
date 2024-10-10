@@ -12,7 +12,7 @@ tags:
 ---
 
 ## Profundizando en el problema
-Recientemente, asistí a la [CommitConf](https://commit-conf.com/) junto a mis compañeros Mánu Fosela y Aitor Reviriego. 
+Este año asistí a la [CommitConf 24](https://commit-conf.com/) junto a mis compañeros Mánu Fosela y Aitor Reviriego. 
 Durante el evento, tuve la oportunidad de hablar con representantes de varias empresas y visitar diversos stands en busca 
 de información sobre las oportunidades laborales para desarrolladores junior. Lo que encontré refleja una realidad 
 preocupante: el mercado para perfiles junior está más complicado de lo que parece, ya que la mayoría de las empresas 
@@ -31,7 +31,7 @@ Esta comunidad se dedica a ofrecer las tan necesarias oportunidades, facilitando
 open source que pueden contar como experiencia profesional. Manu pronto será product owner en un nuevo proyecto dentro 
 de esta comunidad, ofreciendo a los juniors un entorno de trabajo muy similar al real.
 
-Hace unos días, me reuní virtualmente con los organizadores de AdoptaUnJunior. Fue una charla inspiradora sobre su 
+En esos días, me reuní virtualmente con los organizadores de AdoptaUnJunior. Fue una charla inspiradora sobre su 
 misión de facilitar el primer empleo para desarrolladores. Manu mencionó que, además del proyecto de Leanmind, 
 empresas como [Manfred](https://www.getmanfred.com/) apadrinarán a la comunidad, apoyando estos proyectos que 
 omenzaron a finales de abril y principios de marzo.
