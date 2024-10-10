@@ -4,7 +4,7 @@ image: "/images/blog/primera_experiencia_junior.webp"
 description: "En estas semanas he estado redescubriendo Java, con el objetivo de pulir las bases y practicar muchos de 
 los conceptos comunes del desarrollo..."
 date: 2024-09-27
-isPublished: false
+isPublished: true
 tags:
     - "junior"
     - "opinion"
