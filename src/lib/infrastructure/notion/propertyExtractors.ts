@@ -61,6 +61,26 @@ export function extractMultiSelect(property: NotionProperty): string[] {
 }
 
 /**
+ * Extracts status from Notion status property
+ */
+export function extractStatus(property: NotionProperty): string | undefined {
+  if (property.type === "status" && property.status) {
+    return property.status.name;
+  }
+  return undefined;
+}
+
+/**
+ * Extracts date from Notion created_time property
+ */
+export function extractCreatedTime(property: NotionProperty): Date | undefined {
+  if (property.type === "created_time") {
+    return new Date(property.created_time);
+  }
+  return undefined;
+}
+
+/**
  * Extracts image URL from Notion files property or cover
  */
 export function extractImage(

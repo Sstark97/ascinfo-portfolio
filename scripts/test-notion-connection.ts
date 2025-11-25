@@ -54,12 +54,11 @@ async function testConnection() {
     // Check 4: Verificar estructura
     if (response.results.length === 0) {
       console.warn("⚠️  La database está vacía");
-      console.log("💡 Añade al menos una página de prueba con:");
-      console.log("   - Title (Title)");
-      console.log("   - Description (Text)");
-      console.log("   - Date (Date)");
+      console.log("💡 Añade al menos una página de prueba con estas propiedades:");
+      console.log("   - Título (Title)");
+      console.log("   - Tags (Multi-select)");
       console.log("   - Published (Checkbox) ← Marca este checkbox");
-      console.log("   - Tags (Multi-select)\n");
+      console.log("   - Created (Created time)\n");
       return;
     }
 
@@ -69,23 +68,47 @@ async function testConnection() {
     if ("properties" in firstPage) {
       const props = firstPage.properties;
 
-      // Verificar propiedades comunes
+      // Verificar propiedades requeridas basadas en tu database real
       const requiredProps = [
-        { names: ["Title", "title", "Name", "name"], type: "title" },
         {
-          names: ["Description", "description", "Descripción"],
-          type: "rich_text",
+          names: ["Título", "Title", "title", "Name"],
+          type: "title",
+          required: true
         },
-        { names: ["Date", "date", "Fecha"], type: "date" },
         {
-          names: ["Published", "published", "Status", "Publicado"],
+          names: ["Tags", "tags"],
+          type: "multi_select",
+          required: true
+        },
+        {
+          names: ["Published", "published"],
           type: "checkbox",
+          required: true
         },
-        { names: ["Tags", "tags"], type: "multi_select" },
+        {
+          names: ["Created", "created"],
+          type: "created_time",
+          required: true
+        },
+      ];
+
+      // Propiedades opcionales
+      const optionalProps = [
+        {
+          names: ["Estado", "Status", "status"],
+          type: "status",
+          required: false
+        },
+        {
+          names: ["Canonical URL", "canonical_url", "URL Canónica"],
+          type: "url",
+          required: false
+        },
       ];
 
       let allGood = true;
 
+      console.log("Propiedades requeridas:");
       for (const req of requiredProps) {
         const foundProp = req.names.find((name) => name in props);
 
@@ -103,14 +126,39 @@ async function testConnection() {
         }
       }
 
+      console.log("\nPropiedades opcionales:");
+      for (const opt of optionalProps) {
+        const foundProp = opt.names.find((name) => name in props);
+
+        if (foundProp) {
+          if (props[foundProp].type === opt.type) {
+            console.log(`✅ ${foundProp} (${opt.type})`);
+          } else {
+            console.warn(
+              `⚠️  ${foundProp}: esperaba ${opt.type}, encontré ${props[foundProp].type}`
+            );
+          }
+        } else {
+          console.log(`➖ ${opt.names[0]} (no configurado)`);
+        }
+      }
+
       if (allGood) {
         console.log("\n🎉 ¡Todo configurado correctamente!");
         console.log("\n📝 Siguiente paso:");
-        console.log("   npm run build\n");
+        console.log("   1. Copia el config de Notion:");
+        console.log("      cp src/content/config.notion.ts src/content/config.ts");
+        console.log("   2. Ejecuta el build:");
+        console.log("      npm run build\n");
       } else {
         console.log("\n⚠️  Hay problemas con la estructura de la database");
         console.log("💡 Revisa las propiedades en Notion\n");
       }
+
+      // Mostrar información adicional útil
+      console.log("\n📊 Resumen de tu database:");
+      console.log(`   - Total de propiedades: ${Object.keys(props).length}`);
+      console.log(`   - Propiedades encontradas: ${Object.keys(props).join(", ")}`);
     }
   } catch (error: any) {
     console.error("❌ Error al conectar con Notion:\n");

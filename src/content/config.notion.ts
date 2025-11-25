@@ -1,11 +1,11 @@
 /**
  * Content Collections Configuration with Notion Loader
  *
- * This file demonstrates how to use the Notion Content Layer Loader
- * to fetch content from Notion databases instead of local files.
+ * This file configures Notion as CMS for blog posts.
+ * Presentations and projects continue using local markdown files.
  *
  * To use this configuration:
- * 1. Set up your .env file with NOTION_API_KEY and database IDs
+ * 1. Set up your .env file with NOTION_API_KEY and NOTION_POSTS_DATABASE_ID
  * 2. Rename this file to config.ts (backup the original first)
  * 3. Run `npm run build` to fetch content from Notion
  */
@@ -18,7 +18,6 @@ import type { Presentation } from "@domain/model/Presentation.ts";
 import { notionLoader } from "@infrastructure/notion/loader";
 
 // ===== SCHEMAS =====
-// These schemas validate data coming from Notion
 
 const postSchema: ZodSchema<Post> = z.object({
     slug: z.string().optional(),
@@ -49,36 +48,28 @@ const projectSchema: ZodSchema<Project> = z.object({
     date: z.date(),
 });
 
-// ===== COLLECTIONS WITH NOTION LOADERS =====
-// Each collection uses a Notion loader to fetch data from a database
+// ===== COLLECTIONS =====
 
+// Posts: Fetched from Notion using Content Layer Loader
 const postCollection = defineCollection({
     loader: notionLoader({
         databaseId: import.meta.env.NOTION_POSTS_DATABASE_ID,
-        publishedProperty: "Published", // or "Status" or "Publicado"
+        publishedProperty: "Published",
         downloadImages: import.meta.env.NOTION_DOWNLOAD_IMAGES !== "false",
         type: "posts",
     }),
     schema: postSchema,
 });
 
+// Presentations: Local markdown files (no Notion integration yet)
 const presentationCollection = defineCollection({
-    loader: notionLoader({
-        databaseId: import.meta.env.NOTION_PRESENTATIONS_DATABASE_ID,
-        publishedProperty: "Published",
-        downloadImages: import.meta.env.NOTION_DOWNLOAD_IMAGES !== "false",
-        type: "presentations",
-    }),
+    type: 'content',
     schema: presentationSchema,
 });
 
+// Projects: Local markdown files (no Notion integration yet)
 const projectCollection = defineCollection({
-    loader: notionLoader({
-        databaseId: import.meta.env.NOTION_PROJECTS_DATABASE_ID,
-        publishedProperty: "Published",
-        downloadImages: import.meta.env.NOTION_DOWNLOAD_IMAGES !== "false",
-        type: "projects",
-    }),
+    type: 'content',
     schema: projectSchema,
 });
 
