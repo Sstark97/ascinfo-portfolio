@@ -46,7 +46,7 @@ export function notionLoader(options: NotionLoaderOptions): Loader {
           },
           sorts: [
             {
-              property: "Date",
+              property: "Created",
               direction: "descending",
             },
           ],
