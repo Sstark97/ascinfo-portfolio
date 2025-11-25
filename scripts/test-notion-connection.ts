@@ -66,29 +66,25 @@ async function testConnection() {
 
     const firstPage = response.results[0];
     if ("properties" in firstPage) {
-      const props = firstPage.properties;
+      const props = firstPage.properties as Record<string, any>;
 
       // Verificar propiedades requeridas basadas en tu database real
       const requiredProps = [
         {
           names: ["Título", "Title", "title", "Name"],
           type: "title",
-          required: true
         },
         {
           names: ["Tags", "tags"],
           type: "multi_select",
-          required: true
         },
         {
           names: ["Published", "published"],
           type: "checkbox",
-          required: true
         },
         {
           names: ["Created", "created"],
           type: "created_time",
-          required: true
         },
       ];
 
@@ -97,12 +93,10 @@ async function testConnection() {
         {
           names: ["Estado", "Status", "status"],
           type: "status",
-          required: false
         },
         {
           names: ["Canonical URL", "canonical_url", "URL Canónica"],
           type: "url",
-          required: false
         },
       ];
 
@@ -116,13 +110,16 @@ async function testConnection() {
           console.error(`❌ Propiedad no encontrada: ${req.names[0]}`);
           console.log(`   Busqué: ${req.names.join(", ")}`);
           allGood = false;
-        } else if (props[foundProp].type !== req.type) {
-          console.error(
-            `❌ Tipo incorrecto para ${foundProp}: esperaba ${req.type}, encontré ${props[foundProp].type}`
-          );
-          allGood = false;
         } else {
-          console.log(`✅ ${foundProp} (${req.type})`);
+          const propType = props[foundProp]?.type;
+          if (propType !== req.type) {
+            console.error(
+              `❌ Tipo incorrecto para ${foundProp}: esperaba ${req.type}, encontré ${propType}`
+            );
+            allGood = false;
+          } else {
+            console.log(`✅ ${foundProp} (${req.type})`);
+          }
         }
       }
 
@@ -131,11 +128,12 @@ async function testConnection() {
         const foundProp = opt.names.find((name) => name in props);
 
         if (foundProp) {
-          if (props[foundProp].type === opt.type) {
+          const propType = props[foundProp]?.type;
+          if (propType === opt.type) {
             console.log(`✅ ${foundProp} (${opt.type})`);
           } else {
             console.warn(
-              `⚠️  ${foundProp}: esperaba ${opt.type}, encontré ${props[foundProp].type}`
+              `⚠️  ${foundProp}: esperaba ${opt.type}, encontré ${propType}`
             );
           }
         } else {
