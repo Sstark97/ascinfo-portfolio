@@ -44,6 +44,8 @@ export function notionLoader(options: NotionLoaderOptions): Loader {
 
         // Get data source ID if not provided
         let sourceId = dataSourceId;
+        let useLegacyApi = false;
+        
         if (!sourceId) {
           logger.info(`📡 Discovering data sources in database...`);
           const database = await notion.databases.retrieve({ database_id: databaseId });
@@ -55,29 +57,50 @@ export function notionLoader(options: NotionLoaderOptions): Loader {
             // @ts-ignore
             logger.info(`✅ Using data source: ${database.data_sources[0].name || sourceId}`);
           } else {
-            // Fallback for databases without explicit data sources (backwards compatibility)
-            sourceId = databaseId;
-            logger.info(`⚠️ No data sources found, using database ID as fallback`);
+            // Fallback: use legacy databases.query API for backwards compatibility
+            useLegacyApi = true;
+            logger.info(`⚠️ No data sources found, using legacy database query API`);
           }
         }
 
-        // Query the data source instead of the database
-        // @ts-ignore - The dataSources.query method exists in API 2025-09-03
-        const response = await notion.dataSources.query({
-          data_source_id: sourceId,
-          filter: {
-            property: publishedProperty,
-            checkbox: {
-              equals: true,
+        // Query using the appropriate API
+        let response;
+        if (useLegacyApi) {
+          // Use legacy databases.query for databases without data sources
+          response = await notion.databases.query({
+            database_id: databaseId,
+            filter: {
+              property: publishedProperty,
+              checkbox: {
+                equals: true,
+              },
             },
-          },
-          sorts: [
-            {
-              property: sortProperty,
-              direction: "descending",
+            sorts: [
+              {
+                property: sortProperty,
+                direction: "descending",
+              },
+            ],
+          });
+        } else {
+          // Use new dataSources.query for databases with data sources
+          // @ts-ignore - The dataSources.query method exists in API 2025-09-03
+          response = await notion.dataSources.query({
+            data_source_id: sourceId,
+            filter: {
+              property: publishedProperty,
+              checkbox: {
+                equals: true,
+              },
             },
-          ],
-        });
+            sorts: [
+              {
+                property: sortProperty,
+                direction: "descending",
+              },
+            ],
+          });
+        }
 
         logger.info(`📦 Found ${response.results.length} published ${type}`);
 
