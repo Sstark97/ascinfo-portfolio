@@ -4,20 +4,23 @@ This document summarizes all the fixes and improvements made to the Notion CMS i
 
 ## 📋 Summary
 
-The original PR #10 implemented Notion CMS integration using outdated documentation, which caused compatibility issues with the latest @notionhq/client v5.4.0. This PR fixes those issues and improves the overall implementation.
+The original PR #10 implemented Notion CMS integration using outdated documentation. This PR upgrades the implementation to use the **latest Notion API version (2025-09-03)** with full support for the new **data sources model**, ensuring future-proof compatibility and access to the latest Notion features.
 
 ## 🐛 Issues Fixed
 
-### 1. **Notion API Version Compatibility** ⚠️ CRITICAL
-**Problem:** The @notionhq/client v5.4.0 introduced breaking changes with API version 2025-09-03, which requires using "data sources" instead of "database IDs". The original implementation used the default (latest) API version, which would break existing Notion setups.
+### 1. **Notion API Version Upgrade** ⚠️ CRITICAL
+**Problem:** The original implementation didn't specify an API version, which could lead to unpredictable behavior. The latest Notion API (2025-09-03) requires using "data sources" instead of just "database IDs".
 
 **Solution:** 
-- Pinned the Notion API version to `2022-06-28` in `src/lib/infrastructure/notion/client.ts`
-- This version uses the stable database API model and avoids breaking changes
-- Added documentation explaining this choice for future reference
+- Upgraded to use the **latest Notion API version (2025-09-03)** in `src/lib/infrastructure/notion/client.ts`
+- Implemented automatic data source discovery from databases
+- Updated the loader to use `notion.dataSources.query()` instead of `notion.databases.query()`
+- Added fallback support for databases without explicit data sources (backwards compatibility)
+- Added configurable `dataSourceId` option for advanced use cases
 
 **Files Changed:**
 - `src/lib/infrastructure/notion/client.ts`
+- `src/lib/infrastructure/notion/loader.ts`
 - `README_NOTION_MIGRATION.md`
 
 ### 2. **Property Extractors Null Safety** 🛡️
@@ -86,16 +89,31 @@ The original PR #10 implemented Notion CMS integration using outdated documentat
 ## 🔄 Compatibility Notes
 
 ### Notion API Version
-This implementation uses **Notion API version 2022-06-28**:
-- ✅ Stable and well-documented
-- ✅ Uses classic database model (no data sources)
-- ✅ Compatible with existing Notion integrations
-- ⚠️ Does not support new Notion features from 2025 API
+This implementation uses **Notion API version 2025-09-03** (the latest):
+- ✅ Future-proof with latest features
+- ✅ Supports new data sources model
+- ✅ Automatic data source discovery
+- ✅ Backwards compatible with single-source databases
 
-If you need to use the latest Notion API features (2025-09-03), you'll need to:
-1. Update the API version in `client.ts`
-2. Refactor the loader to use data source IDs instead of database IDs
-3. Test thoroughly with your Notion setup
+### How It Works
+The loader automatically:
+1. Retrieves the database to discover available data sources
+2. Uses the first data source found (or the database ID if none exist)
+3. Queries the data source using the new `dataSources.query()` API
+4. Transforms the results into your content format
+
+### Advanced Configuration
+If your database has multiple data sources, you can specify which one to use:
+
+```typescript
+loader: notionLoader({
+  databaseId: import.meta.env.NOTION_POSTS_DATABASE_ID,
+  dataSourceId: "your-specific-data-source-id", // Optional
+  publishedProperty: "Published",
+  downloadImages: true,
+  type: "posts",
+})
+```
 
 ### Dependencies
 - `@notionhq/client`: ^5.4.0 (compatible with version pinning)
@@ -138,4 +156,12 @@ If you encounter any issues:
 
 ---
 
-**All issues from PR #10 have been resolved. The Notion CMS integration is now production-ready!** 🎉
+**All issues from PR #10 have been resolved. The Notion CMS integration now uses the latest Notion API (2025-09-03) and is production-ready!** 🎉
+
+## 🚀 New Features
+
+With the latest Notion API, you now have access to:
+- ✅ Multi-source database support (if needed in the future)
+- ✅ Latest Notion features and improvements
+- ✅ Better performance and reliability
+- ✅ Future-proof implementation

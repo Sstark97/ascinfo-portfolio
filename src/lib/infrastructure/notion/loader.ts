@@ -6,6 +6,8 @@ import type { NotionPage } from "./types";
 export interface NotionLoaderOptions {
   /** Notion database ID */
   databaseId: string;
+  /** Optional: Specific data source ID to query. If not provided, uses the first data source in the database */
+  dataSourceId?: string;
   /** Property name for published status (default: "Published") */
   publishedProperty?: string;
   /** Property name for sorting by date (default: "Created") */
@@ -19,10 +21,12 @@ export interface NotionLoaderOptions {
 /**
  * Content Layer Loader for Notion
  * Fetches pages from a Notion database and transforms them into Astro content
+ * Uses the new data sources model (API version 2025-09-03)
  */
 export function notionLoader(options: NotionLoaderOptions): Loader {
   const {
     databaseId,
+    dataSourceId,
     publishedProperty = "Published",
     sortProperty = "Created",
     downloadImages = true,
@@ -38,9 +42,29 @@ export function notionLoader(options: NotionLoaderOptions): Loader {
         // Clear existing entries
         store.clear();
 
-        // Query Notion database with filter for published posts
-        const response = await notion.databases.query({
-          database_id: databaseId,
+        // Get data source ID if not provided
+        let sourceId = dataSourceId;
+        if (!sourceId) {
+          logger.info(`📡 Discovering data sources in database...`);
+          const database = await notion.databases.retrieve({ database_id: databaseId });
+          
+          // @ts-ignore - The data_sources property exists in API 2025-09-03
+          if (database.data_sources && database.data_sources.length > 0) {
+            // @ts-ignore
+            sourceId = database.data_sources[0].id;
+            // @ts-ignore
+            logger.info(`✅ Using data source: ${database.data_sources[0].name || sourceId}`);
+          } else {
+            // Fallback for databases without explicit data sources (backwards compatibility)
+            sourceId = databaseId;
+            logger.info(`⚠️ No data sources found, using database ID as fallback`);
+          }
+        }
+
+        // Query the data source instead of the database
+        // @ts-ignore - The dataSources.query method exists in API 2025-09-03
+        const response = await notion.dataSources.query({
+          data_source_id: sourceId,
           filter: {
             property: publishedProperty,
             checkbox: {
