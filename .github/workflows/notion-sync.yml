@@ -8,6 +8,10 @@ on:
   # Manual: Permite ejecutar manualmente desde GitHub UI
   workflow_dispatch:
 
+# Explicitly set permissions to read-only by default for security
+permissions:
+  contents: read
+
 jobs:
   rebuild:
     name: Trigger Vercel Rebuild
