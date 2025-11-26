@@ -3,7 +3,8 @@ import type { NotionProperty } from "./types";
 /**
  * Extracts text from Notion title property
  */
-export function extractTitle(property: NotionProperty): string {
+export function extractTitle(property: NotionProperty | undefined): string {
+  if (!property) return "";
   if (property.type === "title" && property.title.length > 0) {
     return property.title.map((text) => text.plain_text).join("");
   }
@@ -13,7 +14,8 @@ export function extractTitle(property: NotionProperty): string {
 /**
  * Extracts text from Notion rich_text property
  */
-export function extractRichText(property: NotionProperty): string {
+export function extractRichText(property: NotionProperty | undefined): string {
+  if (!property) return "";
   if (property.type === "rich_text" && property.rich_text.length > 0) {
     return property.rich_text.map((text) => text.plain_text).join("");
   }
@@ -23,7 +25,8 @@ export function extractRichText(property: NotionProperty): string {
 /**
  * Extracts URL from Notion url property
  */
-export function extractUrl(property: NotionProperty): string | undefined {
+export function extractUrl(property: NotionProperty | undefined): string | undefined {
+  if (!property) return undefined;
   if (property.type === "url") {
     return property.url || undefined;
   }
@@ -33,7 +36,8 @@ export function extractUrl(property: NotionProperty): string | undefined {
 /**
  * Extracts date from Notion date property
  */
-export function extractDate(property: NotionProperty): Date | undefined {
+export function extractDate(property: NotionProperty | undefined): Date | undefined {
+  if (!property) return undefined;
   if (property.type === "date" && property.date?.start) {
     return new Date(property.date.start);
   }
@@ -43,7 +47,8 @@ export function extractDate(property: NotionProperty): Date | undefined {
 /**
  * Extracts boolean from Notion checkbox property
  */
-export function extractCheckbox(property: NotionProperty): boolean {
+export function extractCheckbox(property: NotionProperty | undefined): boolean {
+  if (!property) return false;
   if (property.type === "checkbox") {
     return property.checkbox;
   }
@@ -53,7 +58,8 @@ export function extractCheckbox(property: NotionProperty): boolean {
 /**
  * Extracts tags from Notion multi_select property
  */
-export function extractMultiSelect(property: NotionProperty): string[] {
+export function extractMultiSelect(property: NotionProperty | undefined): string[] {
+  if (!property) return [];
   if (property.type === "multi_select") {
     return property.multi_select.map((tag) => tag.name);
   }
@@ -63,7 +69,8 @@ export function extractMultiSelect(property: NotionProperty): string[] {
 /**
  * Extracts status from Notion status property
  */
-export function extractStatus(property: NotionProperty): string | undefined {
+export function extractStatus(property: NotionProperty | undefined): string | undefined {
+  if (!property) return undefined;
   if (property.type === "status" && property.status) {
     return property.status.name;
   }
@@ -73,7 +80,8 @@ export function extractStatus(property: NotionProperty): string | undefined {
 /**
  * Extracts date from Notion created_time property
  */
-export function extractCreatedTime(property: NotionProperty): Date | undefined {
+export function extractCreatedTime(property: NotionProperty | undefined): Date | undefined {
+  if (!property) return undefined;
   if (property.type === "created_time") {
     return new Date(property.created_time);
   }

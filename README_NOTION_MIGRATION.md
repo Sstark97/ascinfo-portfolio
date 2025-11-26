@@ -4,6 +4,8 @@
 
 Tu portfolio ha sido equipado con un **sistema completo de integración con Notion** como CMS, utilizando la **Content Layer API de Astro v5**. La implementación está **lista para usar** y es **100% compatible** con tu código existente.
 
+> **⚠️ Nota de Compatibilidad:** Esta implementación usa la API de Notion versión `2022-06-28` para garantizar compatibilidad con el modelo de base de datos clásico. Si deseas usar las nuevas funcionalidades de Notion API 2025, será necesario actualizar la implementación para usar el modelo de "data sources".
+
 ---
 
 ## ✅ Lo que se ha implementado
