@@ -8,6 +8,8 @@ export interface NotionLoaderOptions {
   databaseId: string;
   /** Property name for published status (default: "Published") */
   publishedProperty?: string;
+  /** Property name for sorting by date (default: "Created") */
+  sortProperty?: string;
   /** Whether to download images during build (default: true) */
   downloadImages?: boolean;
   /** Content type for organization (default: "posts") */
@@ -22,6 +24,7 @@ export function notionLoader(options: NotionLoaderOptions): Loader {
   const {
     databaseId,
     publishedProperty = "Published",
+    sortProperty = "Created",
     downloadImages = true,
     type = "posts",
   } = options;
@@ -46,7 +49,7 @@ export function notionLoader(options: NotionLoaderOptions): Loader {
           },
           sorts: [
             {
-              property: "Created",
+              property: sortProperty,
               direction: "descending",
             },
           ],

@@ -1,4 +1,4 @@
-import type { NotionProperty } from "./types";
+import type { NotionProperty, NotionCover } from "./types";
 
 /**
  * Extracts text from Notion title property
@@ -111,13 +111,13 @@ export function extractImage(
 /**
  * Extracts cover image from Notion page
  */
-export function extractCoverImage(cover: any): string | undefined {
+export function extractCoverImage(cover: NotionCover): string | undefined {
   if (!cover) return undefined;
 
   if (cover.type === "external") {
-    return cover.external.url;
+    return cover.external?.url;
   } else if (cover.type === "file") {
-    return cover.file.url;
+    return cover.file?.url;
   }
 
   return undefined;
